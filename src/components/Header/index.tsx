@@ -1,0 +1,183 @@
+import { useState } from "react";
+
+import { useWeb3Modal } from "@web3modal/wagmi/react";
+import { useAccount } from "wagmi";
+
+import { withTranslation } from "react-i18next";
+import { TFunction } from "i18next";
+
+import LanguagesModal from "../LanguagesModal";
+
+import {
+  buy_img,
+  discord,
+  dropdown_arrow,
+  logo,
+  telegram,
+  wallet_img,
+  x,
+} from "../../assets";
+import i18n from "../../translate/i18n";
+
+import "./header.css";
+
+interface IProps {
+  t: TFunction;
+}
+
+const Header: React.FC<IProps> = ({ t }) => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [modalActive, setModalActive] = useState(false);
+
+  const { address } = useAccount();
+
+  const { open } = useWeb3Modal();
+
+  return (
+    <header className="flex sticky top-0 inter-400 z-50">
+      <nav className="sticky w-full text-[#fff] backdrop-blur-md">
+        <div className="w-full flex items-center justify-between h-[60px] md:h-[80px] px-2 md:px-5">
+          <img
+            className="w-[110px] md:w-full h-9 max-w-[200px] cursor-pointer xl:mt-[-16px]"
+            src={logo}
+            alt="logo"
+          />
+
+          <div className="hidden xl:flex items-center justify-center gap-8 montserrat text-[20px] 2xl:text-[24px]">
+            <p className="cursor-pointer">{t("about")}</p>
+            <p className="cursor-pointer">{t("presale")}</p>
+            <p className="cursor-pointer">{t("statistic")}</p>
+            <p className="cursor-pointer">{t("roadmap")}</p>
+            <p className="cursor-pointer">{t("tokenomics")}</p>
+            <p className="cursor-pointer">{t("team")}</p>
+            <p className="cursor-pointer">{t("faq")}</p>
+          </div>
+          <div className="flex items-center gap-5">
+            <div className="flex items-center gap-5 poppins text-[15px]">
+              <button className="bg-[#D7AA41] rounded-3xl min-[1680px]:block hidden">
+                <div className="py-3 pl-4 pr-6 flex items-center gap-2">
+                  <img src={buy_img} alt="buy" />
+                  <p>{t("buy_token")}</p>
+                </div>
+              </button>
+              <button
+                className="rounded-3xl bg-transparent border min-[430px]:block hidden"
+                onClick={() => open()}
+              >
+                <div className="py-[6px] pl-2 pr-3 md:py-3 md:pl-4 md:pr-6 flex items-center gap-1 md:gap-2">
+                  <img src={wallet_img} alt="Connect Wallet" />
+                  <p>
+                    {address
+                      ? address.slice(0, 4) + "..." + address.slice(-4)
+                      : t("connect_wallet")}
+                  </p>
+                </div>
+              </button>
+            </div>
+            <div className="2xl:flex items-center gap-5 hidden">
+              <a href="#">
+                <img src={x} alt="X" />
+              </a>
+              <a href="#">
+                <img src={telegram} alt="Telegram" />
+              </a>
+              <a href="#">
+                <img src={discord} alt="Discord" />
+              </a>
+            </div>
+            <div
+              onClick={() => setModalActive((prev) => !prev)}
+              className="cursor-pointer flex items-center relative languagesSelector mr-[40px] xl:mr-0"
+            >
+              <div className="mr-[10px] uppercase montserrat text-[24px] leading-[30px]">
+                {i18n.language}
+              </div>
+              <img
+                className={
+                  modalActive
+                    ? "rotate-[180deg] transition-[0.5s]"
+                    : "transition-[0.5s]"
+                }
+                src={dropdown_arrow}
+                alt="Dropdown arrow"
+              />
+
+              <LanguagesModal active={modalActive} setActive={setModalActive} />
+            </div>
+          </div>
+
+          <section className="flex xl:hidden absolute right-[16px] md:right-[26px]">
+            <div
+              className="space-y-2 cursor-pointer"
+              onClick={() => setIsNavOpen((prev) => !prev)}
+            >
+              <span className="block h-[2px] w-[21px] animate-pulse bg-[#fff]"></span>
+              <span className="block h-[2px] w-[21px] animate-pulse bg-[#fff]"></span>
+              <span className="block h-[2px] w-[21px] animate-pulse bg-[#fff]"></span>
+            </div>
+
+            <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
+              <div className="absolute top-0 left-0 px-8 py-8 cursor-pointer">
+                <img className="cursor-pointer" src={logo} alt="logo" />
+              </div>
+              <div
+                className="absolute top-0 right-0 px-8 py-8 cursor-pointer"
+                onClick={() => setIsNavOpen(false)}
+              >
+                <svg
+                  className="h-8 w-8 text-[#fff]"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </div>
+              <div className="flex justify-center items-center flex-col w-full">
+                <div className="text-[#fff] px-5 w-full">
+                  <div className="flex justify-between items-center flex-col gap-8">
+                    <p className="cursor-pointer">{t("about")}</p>
+                    <p className="cursor-pointer">{t("presale")}</p>
+                    <p className="cursor-pointer">{t("statistic")}</p>
+                    <p className="cursor-pointer">{t("roadmap")}</p>
+                    <p className="cursor-pointer">{t("tokenomics")}</p>
+                    <p className="cursor-pointer">{t("team")}</p>
+                    <p className="cursor-pointer">{t("faq")}</p>
+
+                    <div className="flex flex-col items-center gap-5 poppins text-[15px]">
+                      <button className="bg-[#D7AA41] rounded-3xl">
+                        <div className="py-3 pl-4 pr-6 flex items-center gap-2">
+                          <img src={buy_img} alt="buy" />
+                          <p>{t("buy_token")}</p>
+                        </div>
+                      </button>
+                      <button
+                        className="rounded-3xl bg-transparent border"
+                        onClick={() => open()}
+                      >
+                        <div className="py-3 pl-4 pr-6 flex items-center gap-2">
+                          <img src={wallet_img} alt="Connect Wallet" />
+                          <p>
+                            {address
+                              ? address.slice(0, 4) + "..." + address.slice(-4)
+                              : t("connect_wallet")}
+                          </p>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </nav>
+    </header>
+  );
+};
+
+export default withTranslation()(Header);
