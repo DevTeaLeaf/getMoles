@@ -1,12 +1,22 @@
 {
   "about": "About",
   "presale": "Presale",
-  "statistic": "Statistic",
   "roadmap": "Roadmap",
   "tokenomics": "Tokenomics",
   "team": "Team",
   "faq": "FAQ",
   "connect_wallet": "Connect Wallet",
   "buy_token": "Buy Token",
-  "main_description": "Start preparing for the epic battle against the Devouring Moles right now by purchasing $TALPA tokens!"
+  "main_description": "Start preparing for the epic battle against the Devouring Moles right now by purchasing $TALPA tokens!",
+  "home_h1": "Have you dreamed of becoming a professional?",
+  "home_h3": "It's possible with us!",
+  "home_question_1": "Getmoles is the ideal gaming platform",
+  "home_question_2": "No matter your skill level, there is always an opportunity to make money!",
+  "home_question_3": "Are moles in the habit of stealing your harvest? Show them who's boss in the garden!",
+  "home_answer_1": "Players can win rewards in tournaments, ranked games, quests and battles with their own NFT mole pets in the metaverse",
+  "home_answer_2": "Getmoles makes it easy to top up your wallet every day.",
+  "home_answer_3_1": "You are the same hammerman from whom there is no escape for these pests. Become Thor in your garden beds and push the eating moles back into the ground.",
+  "home_answer_3_2": "Use your hammer to hit as many bumps as possible on the moles. Each filled cone and each defeated pest mole brings points. Be fast and accurate. Hit the most arrogant moles, compete with other players, get the coolest weapons that will help you become the terror of the moles.",
+  "home_answer_3_3": "And this is just the beginning! Information about the game will be constantly updated, stay tuned for announcements",
+  "read_whitepaper": "Read Whitepaper"
 }

@@ -1,12 +1,22 @@
 {
   "about": "Vers",
   "presale": "Prévente",
-  "statistic": "Statistique",
   "roadmap": "Feuille de route",
   "tokenomics": "Tokénomique",
   "team": "Équipe",
   "faq": "FAQ",
   "connect_wallet": "Connecter le portefeuille",
   "buy_token": "Acheter un jeton",
-  "main_description": "Commencez dès maintenant à vous préparer pour la bataille épique contre les taupes dévorantes en achetant des jetons $TALPA !"
+  "main_description": "Commencez dès maintenant à vous préparer pour la bataille épique contre les taupes dévorantes en achetant des jetons $TALPA !",
+  "home_h1": "Vous rêviez de devenir professionnel ?",
+  "home_h3": "C'est possible avec nous !",
+  "home_question_1": "Getmoles est la plateforme de jeu idéale",
+  "home_question_2": "Quel que soit votre niveau de compétence, il y a toujours une opportunité de gagner de l’argent !",
+  "home_question_3": "Les taupes ont-elles l'habitude de voler vos récoltes ? Montrez-leur qui est le patron dans le jardin !",
+  "home_answer_1": "Les joueurs peuvent gagner des récompenses dans des tournois, des jeux classés, des quêtes et des batailles avec leurs propres taupes NFT dans le métaverse.",
+  "home_answer_2": "Getmoles permet de recharger facilement votre portefeuille chaque jour.",
+  "home_answer_3_1": "Vous êtes le même marteleur auquel ces parasites ne peuvent échapper. Devenez Thor dans vos plates-bandes et repoussez les taupes mangeuses dans le sol.",
+  "home_answer_3_2": "Utilisez votre marteau pour frapper autant de bosses que possible sur les taupes. Chaque cône rempli et chaque taupe nuisible vaincue rapportent des points. Soyez rapide et précis. Frappez les taupes les plus arrogantes, rivalisez avec d'autres joueurs, obtenez les armes les plus cool qui vous aideront à devenir la terreur des taupes.",
+  "home_answer_3_3": "Et ce n'est que le début! Les informations sur le jeu seront constamment mises à jour, restez à l'écoute des annonces",
+  "read_whitepaper": "Lire le livre blanc"
 }

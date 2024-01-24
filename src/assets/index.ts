@@ -10,12 +10,17 @@ import dropdown_arrow from "./img/dropdown_arrow.svg";
 import x from "./img/x.svg";
 import telegram from "./img/telegram.svg";
 import discord from "./img/discord.svg";
+import youtube from "./img/youtube.svg";
 
 import en from "./img/en.svg";
 import fr from "./img/fr.svg";
 import ru from "./img/ru.svg";
 import es from "./img/es.svg";
 import zh from "./img/zh.svg";
+
+import rocket from "./img/rocket.svg";
+import group from "./img/group.svg";
+import target from "./img/target.svg";
 
 export {
   logo,
@@ -27,9 +32,13 @@ export {
   x,
   telegram,
   discord,
+  youtube,
   en,
   fr,
   ru,
   es,
   zh,
+  rocket,
+  group,
+  target,
 };

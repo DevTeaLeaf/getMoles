@@ -1,12 +1,22 @@
 {
   "about": "Sobre",
   "presale": "Preventa",
-  "statistic": "Estadística",
   "roadmap": "Mapa vial",
   "tokenomics": "Tokenómica",
   "team": "Equipo",
   "faq": "FAQ",
   "connect_wallet": "Conectar billetera",
   "buy_token": "Comprar ficha",
-  "main_description": "¡Comienza a prepararte para la batalla épica contra los topos devoradores ahora mismo comprando tokens $TALPA!"
+  "main_description": "¡Comienza a prepararte para la batalla épica contra los topos devoradores ahora mismo comprando tokens $TALPA!",
+  "home_h1": "¿Has soñado con convertirte en profesional?",
+  "home_h3": "Es posible con nosotros!",
+  "home_question_1": "Getmoles es la plataforma de juegos ideal",
+  "home_question_2": "No importa tu nivel de habilidad, ¡siempre existe la oportunidad de ganar dinero!",
+  "home_question_3": "¿Los topos tienen la costumbre de robarte la cosecha? ¡Muéstrales quién manda en el jardín!",
+  "home_answer_1": "Los jugadores pueden ganar recompensas en torneos, juegos clasificados, misiones y batallas con sus propias mascotas topo NFT en el metaverso.",
+  "home_answer_2": "Getmoles te facilita recargar tu cartera todos los días.",
+  "home_answer_3_1": "Eres el mismo martillo del que no hay escapatoria para estas plagas. Conviértete en Thor en los parterres de tu jardín y empuja a los topos devoradores hacia el suelo.",
+  "home_answer_3_2": "Usa tu martillo para golpear tantos golpes como sea posible en los topos. Cada cono lleno y cada topo plaga derrotado aporta puntos. Sea rápido y preciso. Golpea a los topos más arrogantes, compite con otros jugadores, consigue las mejores armas que te ayudarán a convertirte en el terror de los topos.",
+  "home_answer_3_3": "¡Y esto es sólo el principio! La información sobre el juego se actualizará constantemente, estad atentos a los anuncios.",
+  "read_whitepaper": "Leer el documento técnico"
 }

@@ -8,18 +8,8 @@ import { TFunction } from "i18next";
 
 import LanguagesModal from "../LanguagesModal";
 
-import {
-  buy_img,
-  discord,
-  dropdown_arrow,
-  logo,
-  telegram,
-  wallet_img,
-  x,
-} from "../../assets";
+import { buy_img, dropdown_arrow, logo, wallet_img } from "../../assets";
 import i18n from "../../translate/i18n";
-
-import "./header.css";
 
 interface IProps {
   t: TFunction;
@@ -46,7 +36,6 @@ const Header: React.FC<IProps> = ({ t }) => {
           <div className="hidden xl:flex items-center justify-center gap-8 montserrat text-[20px] 2xl:text-[24px]">
             <p className="cursor-pointer">{t("about")}</p>
             <p className="cursor-pointer">{t("presale")}</p>
-            <p className="cursor-pointer">{t("statistic")}</p>
             <p className="cursor-pointer">{t("roadmap")}</p>
             <p className="cursor-pointer">{t("tokenomics")}</p>
             <p className="cursor-pointer">{t("team")}</p>
@@ -73,17 +62,6 @@ const Header: React.FC<IProps> = ({ t }) => {
                   </p>
                 </div>
               </button>
-            </div>
-            <div className="2xl:flex items-center gap-5 hidden">
-              <a href="#">
-                <img src={x} alt="X" />
-              </a>
-              <a href="#">
-                <img src={telegram} alt="Telegram" />
-              </a>
-              <a href="#">
-                <img src={discord} alt="Discord" />
-              </a>
             </div>
             <div
               onClick={() => setModalActive((prev) => !prev)}
@@ -116,7 +94,7 @@ const Header: React.FC<IProps> = ({ t }) => {
               <span className="block h-[2px] w-[21px] animate-pulse bg-[#fff]"></span>
             </div>
 
-            <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
+            <div className={isNavOpen ? "show-menu" : "hidden"}>
               <div className="absolute top-0 left-0 px-8 py-8 cursor-pointer">
                 <img className="cursor-pointer" src={logo} alt="logo" />
               </div>
@@ -142,7 +120,6 @@ const Header: React.FC<IProps> = ({ t }) => {
                   <div className="flex justify-between items-center flex-col gap-8">
                     <p className="cursor-pointer">{t("about")}</p>
                     <p className="cursor-pointer">{t("presale")}</p>
-                    <p className="cursor-pointer">{t("statistic")}</p>
                     <p className="cursor-pointer">{t("roadmap")}</p>
                     <p className="cursor-pointer">{t("tokenomics")}</p>
                     <p className="cursor-pointer">{t("team")}</p>
