@@ -1,14 +1,18 @@
+import { useState } from "react";
+
 import { withTranslation } from "react-i18next";
 
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import { useAccount } from "wagmi";
+
+import { Scrollbars } from "react-custom-scrollbars-2";
 
 import { TFunction } from "i18next";
 
 import { Header, Footer } from "./components";
 import {
   h1_logo,
-  moles1,
+  moles,
   rocket,
   group,
   target,
@@ -16,6 +20,21 @@ import {
   x,
   telegram,
   youtube,
+  mole1,
+  mole2,
+  mole3,
+  mole4,
+  mole5,
+  mole6,
+  mole7,
+  mole8,
+  mole9,
+  mole10,
+  hammer,
+  referralBg,
+  doImg,
+  done,
+  progress,
 } from "./assets";
 
 interface IProps {
@@ -26,6 +45,158 @@ const Home: React.FC<IProps> = ({ t }) => {
   const { address } = useAccount();
 
   const { open } = useWeb3Modal();
+
+  const ROADMAP = [
+    {
+      year: 2023,
+      quartals: [
+        {
+          targets: [
+            {
+              state: "done",
+              description: "roadmap_1",
+            },
+            {
+              state: "done",
+              description: "roadmap_2",
+            },
+            {
+              state: "done",
+              description: "roadmap_3",
+            },
+            {
+              state: "done",
+              description: "roadmap_4",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      year: 2024,
+      quartals: [
+        {
+          targets: [
+            {
+              state: "progress",
+              description: "roadmap_5",
+            },
+            {
+              state: "progress",
+              description: "roadmap_6",
+            },
+            {
+              state: "progress",
+              description: "roadmap_7",
+            },
+            {
+              state: "progress",
+              description: "roadmap_8",
+            },
+          ],
+        },
+        {
+          targets: [
+            {
+              state: "do",
+              description: "roadmap_9",
+            },
+            {
+              state: "do",
+              description: "roadmap_10",
+            },
+            {
+              state: "do",
+              description: "roadmap_11",
+            },
+          ],
+        },
+        {
+          targets: [
+            {
+              state: "do",
+              description: "roadmap_12",
+            },
+            {
+              state: "do",
+              description: "roadmap_13",
+            },
+          ],
+        },
+        {
+          targets: [
+            {
+              state: "do",
+              description: "roadmap_14",
+            },
+            {
+              state: "do",
+              description: "roadmap_15",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      year: 2025,
+      quartals: [
+        {
+          targets: [
+            {
+              state: "do",
+              description: "roadmap_16",
+            },
+            {
+              state: "do",
+              description: "roadmap_17",
+            },
+            {
+              state: "do",
+              description: "roadmap_18",
+            },
+          ],
+        },
+        {
+          targets: [
+            {
+              state: "do",
+              description: "roadmap_19",
+            },
+            {
+              state: "do",
+              description: "roadmap_20",
+            },
+            {
+              state: "do",
+              description: "roadmap_21",
+            },
+          ],
+        },
+        {
+          targets: [
+            {
+              state: "do",
+              description: "roadmap_22",
+            },
+            {
+              state: "do",
+              description: "roadmap_23",
+            },
+          ],
+        },
+      ],
+    },
+  ];
+
+  const [activeYear, setActiveYear] = useState(2022);
+  const [activeRoadmap, setActiveRoadmap] = useState(ROADMAP[0]);
+
+  const yearHandler = (year: any) => {
+    const newRoadmap = ROADMAP.filter((step) => step.year === year);
+    setActiveRoadmap(newRoadmap[0]);
+    setActiveYear(year);
+  };
+
   return (
     <div className="flex flex-col">
       <Header />
@@ -55,7 +226,7 @@ const Home: React.FC<IProps> = ({ t }) => {
                 </button>
               </div>
             </div>
-            <img src={moles1} alt="Moles" className="ml-[-20px] z-[-1]" />
+            <img src={moles} alt="Moles" className="ml-[-20px] z-[-1]" />
           </div>
           <div className="montserrat">
             <h1 className="text-[#FFB800] max-w-[1180px] font-bold text-[84px] leading-[80px]">
@@ -121,7 +292,7 @@ const Home: React.FC<IProps> = ({ t }) => {
                       alt="target"
                       className="max-w-[83px] max-h-[83px] items-end"
                     />
-                    <button className="bg-[#fff] rounded-[18px]">
+                    <button className="bg-[#fff] rounded-[18px] button-shadow">
                       <p className="text-[#FFB800] py-5 px-7">
                         {t("read_whitepaper")}
                       </p>
@@ -131,14 +302,14 @@ const Home: React.FC<IProps> = ({ t }) => {
               </div>
               <div className="flex flex-col items-center justify-center ml-[120px] gap-[50px]">
                 <img
-                  src={discord}
-                  alt="discord"
-                  className="w-[102px] h-[102px]"
-                />
-                <img src={x} alt="x" className="w-[102px] h-[102px]" />
-                <img
                   src={telegram}
                   alt="telegram"
+                  className="w-[102px] h-[102px]"
+                />{" "}
+                <img src={x} alt="x" className="w-[102px] h-[102px]" />
+                <img
+                  src={discord}
+                  alt="discord"
                   className="w-[102px] h-[102px]"
                 />
                 <img
@@ -148,6 +319,265 @@ const Home: React.FC<IProps> = ({ t }) => {
                 />
               </div>
             </div>
+          </div>
+          <div className="montserrat flex flex-col items-center gap-[72px]">
+            <h1 className="text-[84px] text-[#FFB800] font-bold leading-[80px]">
+              {t("be_ready_h1")}
+            </h1>
+            <button className="rounded-3xl bg-transparent border border-[#FFB800] w-[315px]">
+              <p className="montserrat text-[20px] font-black py-5">
+                {t("be_ready_button")}
+              </p>
+            </button>
+            <div className="flex flex-col gap-[100px]">
+              <div className="flex items-center gap-[80px]">
+                <img src={mole1} alt="mole" />
+                <img src={mole2} alt="mole" />
+                <img src={mole3} alt="mole" />
+                <img src={mole4} alt="mole" />
+                <img src={mole5} alt="mole" />
+              </div>
+              <div className="flex items-center gap-[80px]">
+                <img src={mole6} alt="mole" />
+                <img src={mole7} alt="mole" />
+                <img src={mole8} alt="mole" />
+                <img src={mole9} alt="mole" />
+                <img src={mole10} alt="mole" />
+              </div>
+            </div>
+          </div>
+          <div className="montserrat flex items-stretch justify-evenly gap-[50px]">
+            <div className="flex flex-col justify-between">
+              <h3 className="text-[36px] text-[#BAB5FF] font-bold uppercase tracking-wide">
+                {t("price_growing")}
+              </h3>
+              <div className="flex items-center gap-10">
+                <div className="flex flex-col items-center gap-[10px]">
+                  <h2 className="text-[72px]">08</h2>
+                  <p className="text-[#C8C8C8] text-[14px] font-light poppins">
+                    {t("days")}
+                  </p>
+                </div>
+                <div className="flex flex-col items-center gap-[10px]">
+                  <h2 className="text-[72px]">12</h2>
+                  <p className="text-[#C8C8C8] text-[14px] font-light poppins">
+                    {t("hours")}
+                  </p>
+                </div>
+                <div className="flex flex-col items-center gap-[10px]">
+                  <h2 className="text-[72px]">44</h2>
+                  <p className="text-[#C8C8C8] text-[14px] font-light poppins">
+                    {t("minutes")}
+                  </p>
+                </div>
+                <div className="flex flex-col items-center gap-[10px]">
+                  <h2 className="text-[72px]">28</h2>
+                  <p className="text-[#C8C8C8] text-[14px] font-light poppins">
+                    {t("seconds")}
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 mt-5 text-[20px]">
+                <p className="text-[#9C9AB6]">{t("hurry_buy")}</p>
+                <p className="text-[#D89C01] font-black">1$</p>
+              </div>
+              <img src={mole8} alt="mole" className="mt-20 w-full" />
+            </div>
+            <div className="flex flex-col justify-between">
+              <div className="flex flex-col items-center gap-5 min-w-[650px]">
+                <div className="flex items-center justify-between w-full leading-[22px] font-medium">
+                  <p className="text-[#DEDEDE] text-[24px]">
+                    {t("usdt_raised")}
+                  </p>
+                  <div className="flex text-[36px]">
+                    <p className="mr-1 text-[#FFB800]">320 900</p> \
+                    <p className="ml-1 text-[#DEDEDE]">800 000</p>
+                  </div>
+                </div>
+                <div className="w-full h-[6px] bg-[#4F51B3] rounded-full overflow-hidden">
+                  <div className="h-full bg-[#FFC82C] transition-all w-1/2"></div>
+                </div>
+                <div className="flex self-start gap-2">
+                  <div className="flex items-center gap-2 text-[24px] font-medium leading-4">
+                    <div className="w-[14px] h-[14px] bg-[#FFC82C] rounded-full"></div>
+                    <p className="opacity-90">{t("collected")}</p>
+                    <p className="opacity-50">320 900</p>
+                  </div>
+                  <div className="flex items-center gap-2 text-[24px] font-medium leading-4">
+                    <div className="w-[14px] h-[14px] bg-[#fff] opacity-20 rounded-full"></div>
+                    <p className="opacity-90">{t("left")}</p>
+                    <p className="opacity-50">800 000</p>
+                  </div>
+                </div>
+              </div>
+              <div className="mb-20">
+                <div className="flex flex-col gap-10">
+                  <div>
+                    <h1 className="mb-5 text-[#DEDEDE] text-[36px] font-medium leading-[22px]">
+                      {t("you_give")}
+                    </h1>
+                    <div className="border border-[#E9A801] px-[15px] flex items-center rounded-xl text-[20px] font-black">
+                      <label
+                        htmlFor="fromInput"
+                        className="mr-5 text-[#D89C01] py-5"
+                      >
+                        USDT
+                      </label>
+                      <input
+                        type="text"
+                        id="fromInput"
+                        className="border-none focus:outline-none flex-grow bg-transparent py-5"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <h1 className="mb-5 text-[#DEDEDE] text-[36px] font-medium leading-[22px]">
+                      {t("you_getting")}
+                    </h1>
+                    <div className="border border-[#E9A801] px-[15px] flex items-center rounded-xl text-[20px] font-black">
+                      <label
+                        htmlFor="tonput"
+                        className="mr-5 text-[#D89C01] py-5"
+                      >
+                        TALPA
+                      </label>
+                      <input
+                        type="text"
+                        id="toInput"
+                        className="border-none focus:outline-none flex-grow bg-transparent py-5"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-5 flex flex-col gap-10 max-w-[315px] text-[20px] relative">
+                  <p className="leading-[22px] font-medium">
+                    {t("min_purchases")}
+                  </p>
+                  <button className="bg-[#FFB800] rounded-[18px]">
+                    <p className="py-5 px-[10px] font-black">{t("confirm")}</p>
+                  </button>
+                  <img
+                    src={hammer}
+                    alt="hammer"
+                    className="absolute z-[-1] right-[-120%] top-[30%]"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="montserrat flex flex-col items-center justify-center">
+            <h1 className="text-[#FFB800] font-bold text-[84px] leading-[80px] tracking-[2px]">
+              {t("referral_earnings")}
+            </h1>
+            <div className="flex mt-20 mb-10">
+              <div className="bg-[#FFB800] rounded-[30px] h-[200px]">
+                <div className="py-6 pl-6 pr-12 flex flex-col items-start gap-4">
+                  <h1 className="text-[#E2E2E2] text-[36px] leading-10">01</h1>
+
+                  <p className="flex gap-2 items-center max-w-[220px] font-bold leading-[125%] uppercase">
+                    <span className="text-[#3C3EAB] text-[20px]">5%</span>
+                    <span className="text-[15px]"> {t("referral_h3_1")}</span>
+                  </p>
+                </div>
+              </div>
+              <div className="bg-[#FFF] rounded-[30px] h-[200px] mt-[200px]">
+                <div className="py-6 pl-6 pr-12 flex flex-col items-start gap-4">
+                  <h1 className="text-[#7E7FBB] text-[36px] leading-10">02</h1>
+
+                  <p className="flex gap-2 items-center max-w-[220px] font-bold leading-[125%] uppercase">
+                    <span className="text-[15px] text-[#3C3EAB]">
+                      {" "}
+                      {t("referral_h3_1")}
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <div className="bg-[#FFB800] rounded-[30px] h-[200px]">
+                <div className="py-6 pl-6 pr-12 flex flex-col items-start gap-4">
+                  <h1 className="text-[#E2E2E2] text-[36px] leading-10">03</h1>
+
+                  <p className="flex gap-2 items-center max-w-[220px] font-bold leading-[125%] uppercase">
+                    <span className="text-[15px]"> {t("referral_h3_3")}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button className="bg-[#FFB800] rounded-[18px]">
+              <p className="py-5 px-[10px] font-black">{t("copy_ref_link")}</p>
+            </button>
+            <img src={referralBg} alt="bg" className="absolute z-[-1]" />
+          </div>
+          <div className="montserrat my-[100px]">
+            <div className="flex flex-wrap gap-[55px] items-center mb-[50px]">
+              <p className="text-[#FFB800] text-[82px] font-bold leading-[80px] tracking-[2px] text-shadow">
+                {t("roadmap")}
+              </p>
+              <div className="flex items-center gap-[10px]">
+                {ROADMAP.map(({ year }) => {
+                  return (
+                    <p
+                      key={year}
+                      onClick={() => yearHandler(year)}
+                      className={`text-[#FFB800] text-[22px] leading-[120%] cursor-pointer px-4 py-[10px] ${
+                        year === activeYear &&
+                        "rounded-[10px] border-[3px] border-[#FFB800]"
+                      }`}
+                    >
+                      {year}
+                    </p>
+                  );
+                })}
+              </div>
+            </div>
+            <Scrollbars
+              renderView={() => (
+                <div className="flex items-start justify-between w-full overflow-x-hidden whitespace-nowrap gap-[10rem]" />
+              )}
+              renderTrackHorizontal={() => <div className="roadmapTrack" />}
+              renderThumbHorizontal={() => <div className="roadmapThumb" />}
+              thumbSize={200}
+              universal={true}
+            >
+              {activeRoadmap.quartals.map((targets, index) => {
+                return (
+                  <div className="flex flex-col gap-2 mb-10" key={index}>
+                    <div className="flex">
+                      <h3 className="text-[40px] font-bold mr-2">
+                        Q{activeYear === 2023 ? 4 : index + 1}
+                      </h3>
+                      <p className="text-[#FFB800]">{activeYear}</p>
+                    </div>
+                    {targets.targets.map((scope, index) => {
+                      return (
+                        <div className="flex items-center" key={index}>
+                          <img
+                            src={`${
+                              scope.state === "do"
+                                ? doImg
+                                : scope.state === "done"
+                                ? done
+                                : progress
+                            }`}
+                            alt="img"
+                          />
+                          <div
+                            className={`leading-[135%] text-[15px] ml-[7px] tracking-[-0.15px] ${
+                              scope.state === "do"
+                                ? "text-[#B6B2BD]"
+                                : scope.state === "done"
+                                ? "opacity-25"
+                                : "text-[#FFB800]"
+                            }`}
+                          >
+                            {t(scope.description)}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </Scrollbars>
           </div>
         </div>
       </div>
