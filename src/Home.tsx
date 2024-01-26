@@ -9,7 +9,7 @@ import { Scrollbars } from "react-custom-scrollbars-2";
 
 import { TFunction } from "i18next";
 
-import { Header, Footer } from "./components";
+import { Header, Footer, Tokenomics } from "./components";
 import {
   h1_logo,
   moles,
@@ -200,7 +200,7 @@ const Home: React.FC<IProps> = ({ t }) => {
   return (
     <div className="flex flex-col">
       <Header />
-      <div className="max-w-[1920px] mx-auto text-[#fff] mb-[200px]">
+      <div className="max-w-[1920px] mx-auto text-[#fff] mb-[200px] montserrat">
         <div className="flex flex-col gap-[150px] mt-[150px]">
           <div className="flex">
             <div className="flex flex-col gap-10 ">
@@ -228,7 +228,7 @@ const Home: React.FC<IProps> = ({ t }) => {
             </div>
             <img src={moles} alt="Moles" className="ml-[-20px] z-[-1]" />
           </div>
-          <div className="montserrat">
+          <div>
             <h1 className="text-[#FFB800] max-w-[1180px] font-bold text-[84px] leading-[80px]">
               {t("home_h1")}
             </h1>
@@ -320,7 +320,7 @@ const Home: React.FC<IProps> = ({ t }) => {
               </div>
             </div>
           </div>
-          <div className="montserrat flex flex-col items-center gap-[72px]">
+          <div className="flex flex-col items-center gap-[72px]">
             <h1 className="text-[84px] text-[#FFB800] font-bold leading-[80px]">
               {t("be_ready_h1")}
             </h1>
@@ -346,7 +346,7 @@ const Home: React.FC<IProps> = ({ t }) => {
               </div>
             </div>
           </div>
-          <div className="montserrat flex items-stretch justify-evenly gap-[50px]">
+          <div className="flex items-stretch justify-evenly gap-[50px]">
             <div className="flex flex-col justify-between">
               <h3 className="text-[36px] text-[#BAB5FF] font-bold uppercase tracking-wide">
                 {t("price_growing")}
@@ -465,7 +465,7 @@ const Home: React.FC<IProps> = ({ t }) => {
               </div>
             </div>
           </div>
-          <div className="montserrat flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center">
             <h1 className="text-[#FFB800] font-bold text-[84px] leading-[80px] tracking-[2px]">
               {t("referral_earnings")}
             </h1>
@@ -502,12 +502,12 @@ const Home: React.FC<IProps> = ({ t }) => {
                 </div>
               </div>
             </div>
-            <button className="bg-[#FFB800] rounded-[18px]">
+            <button className="bg-[#FFB800] rounded-[18px] min-w-[300px]">
               <p className="py-5 px-[10px] font-black">{t("copy_ref_link")}</p>
             </button>
             <img src={referralBg} alt="bg" className="absolute z-[-1]" />
           </div>
-          <div className="montserrat my-[100px]">
+          <div>
             <div className="flex flex-wrap gap-[55px] items-center mb-[50px]">
               <p className="text-[#FFB800] text-[82px] font-bold leading-[80px] tracking-[2px] text-shadow">
                 {t("roadmap")}
@@ -579,6 +579,7 @@ const Home: React.FC<IProps> = ({ t }) => {
               })}
             </Scrollbars>
           </div>
+          <Tokenomics />
         </div>
       </div>
       <Footer />
