@@ -1,5 +1,6 @@
-import { v4 as uuidv4 } from "uuid";
+// @ts-ignore
 import { HorizontalTicker } from "react-infinite-ticker";
+import { v4 as uuidv4 } from "uuid";
 
 import { TO_LEFT_TICKER, TO_RIGHT_TICKER } from "../../constants";
 
