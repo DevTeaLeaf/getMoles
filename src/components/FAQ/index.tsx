@@ -16,7 +16,7 @@ const FAQ: React.FC<IProps> = ({ t }) => {
     setOpenIndex((prevOpenIndex) => (prevOpenIndex === index ? null : index));
   };
   return (
-    <div className="flex flex-col gap-[100px]">
+    <div id="faq" className="flex flex-col gap-[100px]">
       <p className="text-[#FFB800] text-[82px] font-bold leading-[80px] tracking-[2px] text-shadow">
         FAQ
       </p>

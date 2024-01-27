@@ -17,7 +17,7 @@ const LanguagesModal: React.FC<IProps> = ({ active, setActive }) => {
     <div
       className={
         active
-          ? "bg-[#3D3C5C] rounded-[7px] fixed transition-[0.5s] right-[20px] top-[60px] w-[150px] inter text-[18px]"
+          ? "bg-[#3D3C5C] rounded-[7px] fixed transition-[0.5s] right-[20px] top-[70px] w-[150px] inter text-[18px]"
           : "hidden transition-[0.5s]"
       }
     >

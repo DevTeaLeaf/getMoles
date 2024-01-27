@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import { useAccount } from "wagmi";
@@ -23,6 +23,18 @@ const Header: React.FC<IProps> = ({ t }) => {
 
   const { open } = useWeb3Modal();
 
+  const handleNavLinkClick = (id: string) => {
+    setIsNavOpen((prev) => !prev);
+    const targetElement = document.getElementById(id);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  useEffect(() => {
+    document.body.style.overflowY = isNavOpen ? "hidden" : "auto";
+  }, [isNavOpen]);
+
   return (
     <header className="flex sticky top-0 inter-400 z-50">
       <nav className="sticky w-full text-[#fff] backdrop-blur-md">
@@ -34,12 +46,42 @@ const Header: React.FC<IProps> = ({ t }) => {
           />
 
           <div className="hidden xl:flex items-center justify-center gap-8 montserrat text-[20px] 2xl:text-[24px]">
-            <p className="cursor-pointer">{t("about")}</p>
-            <p className="cursor-pointer">{t("presale")}</p>
-            <p className="cursor-pointer">{t("roadmap")}</p>
-            <p className="cursor-pointer">{t("tokenomics")}</p>
-            <p className="cursor-pointer">{t("team")}</p>
-            <p className="cursor-pointer">{t("faq")}</p>
+            <a
+              href="#about"
+              className="cursor-pointer hover:text-[#FFB800] transition-300"
+            >
+              {t("about")}
+            </a>
+            <a
+              href="#presale"
+              className="cursor-pointer hover:text-[#FFB800] transition-300"
+            >
+              {t("presale")}
+            </a>
+            <a
+              href="#roadmap"
+              className="cursor-pointer hover:text-[#FFB800] transition-300"
+            >
+              {t("roadmap")}
+            </a>
+            <a
+              href="#tokenomics"
+              className="cursor-pointer hover:text-[#FFB800] transition-300"
+            >
+              {t("tokenomics")}
+            </a>
+            <a
+              href="#team"
+              className="cursor-pointer hover:text-[#FFB800] transition-300"
+            >
+              {t("team")}
+            </a>
+            <a
+              href="#faq"
+              className="cursor-pointer hover:text-[#FFB800] transition-300"
+            >
+              {t("faq")}
+            </a>
           </div>
           <div className="flex items-center gap-5">
             <div className="flex items-center gap-5 poppins text-[15px]">
@@ -118,12 +160,48 @@ const Header: React.FC<IProps> = ({ t }) => {
               <div className="flex justify-center items-center flex-col w-full">
                 <div className="text-[#fff] px-5 w-full">
                   <div className="flex justify-between items-center flex-col gap-8">
-                    <p className="cursor-pointer">{t("about")}</p>
-                    <p className="cursor-pointer">{t("presale")}</p>
-                    <p className="cursor-pointer">{t("roadmap")}</p>
-                    <p className="cursor-pointer">{t("tokenomics")}</p>
-                    <p className="cursor-pointer">{t("team")}</p>
-                    <p className="cursor-pointer">{t("faq")}</p>
+                    <a
+                      href="#about"
+                      className="cursor-pointer hover:text-[#FFB800] transition-300"
+                      onClick={() => handleNavLinkClick("about")}
+                    >
+                      {t("about")}
+                    </a>
+                    <a
+                      href="#presale"
+                      className="cursor-pointer hover:text-[#FFB800] transition-300"
+                      onClick={() => handleNavLinkClick("presale")}
+                    >
+                      {t("presale")}
+                    </a>
+                    <a
+                      href="#roadmap"
+                      className="cursor-pointer hover:text-[#FFB800] transition-300"
+                      onClick={() => handleNavLinkClick("roadmap")}
+                    >
+                      {t("roadmap")}
+                    </a>
+                    <a
+                      href="#tokenomics"
+                      className="cursor-pointer hover:text-[#FFB800] transition-300"
+                      onClick={() => handleNavLinkClick("tokenomics")}
+                    >
+                      {t("tokenomics")}
+                    </a>
+                    <a
+                      href="#team"
+                      className="cursor-pointer hover:text-[#FFB800] transition-300"
+                      onClick={() => handleNavLinkClick("team")}
+                    >
+                      {t("team")}
+                    </a>
+                    <a
+                      href="#faq"
+                      className="cursor-pointer hover:text-[#FFB800] transition-300"
+                      onClick={() => handleNavLinkClick("faq")}
+                    >
+                      {t("faq")}
+                    </a>
 
                     <div className="flex flex-col items-center gap-5 poppins text-[15px]">
                       <button className="bg-[#D7AA41] rounded-3xl">

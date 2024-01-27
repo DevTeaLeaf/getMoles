@@ -24,7 +24,10 @@ const Roadmap: React.FC<IProps> = ({ t }) => {
   };
   return (
     <div>
-      <div className="flex flex-wrap gap-[55px] items-center mb-[50px]">
+      <div
+        id="roadmap"
+        className="flex flex-wrap gap-[55px] items-center mb-[50px]"
+      >
         <p className="text-[#FFB800] text-[82px] font-bold leading-[80px] tracking-[2px] text-shadow">
           {t("roadmap")}
         </p>

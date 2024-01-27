@@ -10,7 +10,7 @@ interface IProps {
 
 const Team: React.FC<IProps> = ({ t }) => {
   return (
-    <div className="flex flex-col gap-[180px] mt-[100px]">
+    <div id="team" className="flex flex-col gap-[180px] mt-[100px]">
       <p className="text-[#FFB800] text-[82px] font-bold leading-[80px] tracking-[2px] text-shadow">
         {t("team")}
       </p>

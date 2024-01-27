@@ -12,7 +12,7 @@ interface IProps {
 
 const Tokenomics: React.FC<IProps> = ({ t }) => {
   return (
-    <div className="flex items-center justify-between relative">
+    <div id="tokenomics" className="flex items-center justify-between relative">
       <div className="flex flex-col gap-20">
         <h1 className="text-[84px] font-bold leading-[80px] tracking-[2px] text-[#FFB800]">
           {t("tokenomics")}

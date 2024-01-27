@@ -70,7 +70,7 @@ const Home: React.FC<IProps> = ({ t }) => {
             </div>
             <img src={moles} alt="Moles" className="ml-[-20px] z-[-1]" />
           </div>
-          <div>
+          <div id="about">
             <h1 className="text-[#FFB800] max-w-[1180px] font-bold text-[84px] leading-[80px]">
               {t("home_h1")}
             </h1>
@@ -188,7 +188,10 @@ const Home: React.FC<IProps> = ({ t }) => {
               </div>
             </div>
           </div>
-          <div className="flex items-stretch justify-evenly gap-[50px]">
+          <div
+            id="presale"
+            className="flex items-stretch justify-evenly gap-[50px]"
+          >
             <div className="flex flex-col justify-between">
               <h3 className="text-[36px] text-[#BAB5FF] font-bold uppercase tracking-wide">
                 {t("price_growing")}
