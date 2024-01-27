@@ -85,12 +85,15 @@ const Header: React.FC<IProps> = ({ t }) => {
           </div>
           <div className="flex items-center gap-5">
             <div className="flex items-center gap-5 poppins text-[15px]">
-              <button className="bg-[#D7AA41] rounded-3xl min-[1680px]:block hidden">
+              <a
+                href="#presale"
+                className="bg-[#D7AA41] rounded-3xl min-[1680px]:block hidden"
+              >
                 <div className="py-3 pl-4 pr-6 flex items-center gap-2">
                   <img src={buy_img} alt="buy" />
                   <p>{t("buy_token")}</p>
                 </div>
-              </button>
+              </a>
               <button
                 className="rounded-3xl bg-transparent border min-[430px]:block hidden"
                 onClick={() => open()}
@@ -204,7 +207,10 @@ const Header: React.FC<IProps> = ({ t }) => {
                     </a>
 
                     <div className="flex flex-col items-center gap-5 poppins text-[15px]">
-                      <button className="bg-[#D7AA41] rounded-3xl">
+                      <button
+                        onClick={() => handleNavLinkClick("presale")}
+                        className="bg-[#D7AA41] rounded-3xl"
+                      >
                         <div className="py-3 pl-4 pr-6 flex items-center gap-2">
                           <img src={buy_img} alt="buy" />
                           <p>{t("buy_token")}</p>

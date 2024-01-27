@@ -5,7 +5,15 @@ import { useAccount } from "wagmi";
 
 import { TFunction } from "i18next";
 
-import { Header, Footer, Tokenomics, Roadmap, Team, FAQ } from "./components";
+import {
+  Header,
+  Footer,
+  Tokenomics,
+  Roadmap,
+  Team,
+  FAQ,
+  Ticker,
+} from "./components";
 import {
   h1_logo,
   moles,
@@ -16,18 +24,9 @@ import {
   x,
   telegram,
   youtube,
-  mole1,
-  mole2,
-  mole3,
-  mole4,
-  mole5,
-  mole6,
-  mole7,
-  mole8,
-  mole9,
-  mole10,
   hammer,
   referralBg,
+  mole8,
 } from "./assets";
 
 interface IProps {
@@ -44,7 +43,7 @@ const Home: React.FC<IProps> = ({ t }) => {
       <Header />
       <div className="max-w-[1920px] mx-auto text-[#fff] mb-[200px] montserrat">
         <div className="flex flex-col gap-[150px] mt-[150px]">
-          <div className="flex">
+          <div className="flex flex-wrap min-[1720px]:items-start items-center justify-center">
             <div className="flex flex-col gap-10 ">
               <img src={h1_logo} alt="logo" className="max-w-[850px]" />
               <p className="montserrat text-[32px] max-w-[750px] font-medium">
@@ -61,15 +60,23 @@ const Home: React.FC<IProps> = ({ t }) => {
                     </p>
                   </button>
                 )}
-                <button className="rounded-3xl bg-transparent border border-[#FFB800] w-[315px]">
-                  <p className="montserrat text-[20px] font-black py-5">
+                <a
+                  href="#presale"
+                  className="rounded-3xl bg-transparent border border-[#FFB800] w-[315px]"
+                >
+                  <p className="montserrat text-center text-[20px] font-black py-5">
                     {t("buy_token")}
                   </p>
-                </button>
+                </a>
               </div>
             </div>
-            <img src={moles} alt="Moles" className="ml-[-20px] z-[-1]" />
+            <img
+              src={moles}
+              alt="Moles"
+              className="min-[1720px]:ml-[-20px] z-[-1] mt-[-50px] min-[1720px]:mt-0"
+            />
           </div>
+
           <div id="about">
             <h1 className="text-[#FFB800] max-w-[1180px] font-bold text-[84px] leading-[80px]">
               {t("home_h1")}
@@ -77,72 +84,75 @@ const Home: React.FC<IProps> = ({ t }) => {
             <h3 className="leading-[83px] text-[48px] font-semibold py-10">
               {t("home_h3")}
             </h3>
-            <div className="flex items-stretch">
-              <div className="bg-[#fff] rounded-[53px] max-w-[350px] min-h-[650px] card-shadow">
-                <div className="p-10 flex flex-col justify-between h-full">
-                  <div className="flex flex-col gap-4">
-                    <h3 className="text-[#3C3EAB] leading-10 text-[28px] font-medium">
-                      {t("home_question_1")}
-                    </h3>
-                    <p className="text-[#373899] text-[20px] leading-7">
-                      {t("home_answer_1")}
-                    </p>
-                  </div>
-                  <img
-                    src={rocket}
-                    alt="rocket"
-                    className="max-w-[83px] max-h-[83px] items-end"
-                  />
-                </div>
-              </div>
-              <div className="bg-[#fff] rounded-[53px] max-w-[350px] min-h-[650px] card-shadow ml-[-10px]">
-                <div className="p-10 flex flex-col justify-between h-full">
-                  <div className="flex flex-col gap-4">
-                    <h3 className="text-[#3C3EAB] leading-10 text-[28px] font-medium">
-                      {t("home_question_2")}
-                    </h3>
-                    <p className="text-[#373899] text-[20px] leading-7">
-                      {t("home_answer_2")}
-                    </p>
-                  </div>
-                  <img
-                    src={group}
-                    alt="group"
-                    className="max-w-[83px] max-h-[83px] items-end"
-                  />
-                </div>
-              </div>
-              <div className="bg-[#FFB800] rounded-[53px] max-w-[745px] min-h-[650px] card-shadow ml-[-10px]">
-                <div className="p-10 flex flex-col justify-between h-full">
-                  <div className="flex flex-col gap-4 text-[#fff]">
-                    <h3 className="leading-10 text-[28px] font-semibold">
-                      {t("home_question_3")}
-                    </h3>
-                    <p className="text-[20px] leading-7">
-                      {t("home_answer_3_1")}
-                    </p>
-                    <p className="text-[20px] leading-7">
-                      {t("home_answer_3_2")}
-                    </p>
-                    <p className="text-[20px] leading-7">
-                      {t("home_answer_3_3")}
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between">
+            <div className="about">
+              <div className="flex items-stretch">
+                <div className="bg-[#fff] rounded-[53px] max-w-[350px] min-h-[650px] card-shadow">
+                  <div className="p-10 flex flex-col justify-between h-full">
+                    <div className="flex flex-col gap-4">
+                      <h3 className="text-[#3C3EAB] leading-10 text-[28px] font-medium">
+                        {t("home_question_1")}
+                      </h3>
+                      <p className="text-[#373899] text-[20px] leading-7">
+                        {t("home_answer_1")}
+                      </p>
+                    </div>
                     <img
-                      src={target}
-                      alt="target"
+                      src={rocket}
+                      alt="rocket"
                       className="max-w-[83px] max-h-[83px] items-end"
                     />
-                    <button className="bg-[#fff] rounded-[18px] button-shadow">
-                      <p className="text-[#FFB800] py-5 px-7">
-                        {t("read_whitepaper")}
+                  </div>
+                </div>
+                <div className="bg-[#fff] rounded-[53px] max-w-[350px] min-h-[650px] card-shadow ml-[-10px]">
+                  <div className="p-10 flex flex-col justify-between h-full">
+                    <div className="flex flex-col gap-4">
+                      <h3 className="text-[#3C3EAB] leading-10 text-[28px] font-medium">
+                        {t("home_question_2")}
+                      </h3>
+                      <p className="text-[#373899] text-[20px] leading-7">
+                        {t("home_answer_2")}
                       </p>
-                    </button>
+                    </div>
+                    <img
+                      src={group}
+                      alt="group"
+                      className="max-w-[83px] max-h-[83px] items-end"
+                    />
+                  </div>
+                </div>
+                <div className="bg-[#FFB800] rounded-[53px] max-w-[745px] min-h-[650px] card-shadow ml-[-10px]">
+                  <div className="p-10 flex flex-col justify-between h-full">
+                    <div className="flex flex-col gap-4 text-[#fff]">
+                      <h3 className="leading-10 text-[28px] font-semibold">
+                        {t("home_question_3")}
+                      </h3>
+                      <p className="text-[20px] leading-7">
+                        {t("home_answer_3_1")}
+                      </p>
+                      <p className="text-[20px] leading-7">
+                        {t("home_answer_3_2")}
+                      </p>
+                      <p className="text-[20px] leading-7">
+                        {t("home_answer_3_3")}
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <img
+                        src={target}
+                        alt="target"
+                        className="max-w-[83px] max-h-[83px] items-end"
+                      />
+                      <button className="bg-[#fff] rounded-[18px] button-shadow">
+                        <p className="text-[#FFB800] py-5 px-7">
+                          {t("read_whitepaper")}
+                        </p>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col items-center justify-center ml-[120px] gap-[50px]">
+
+              <div className="flex min-[1720px]:flex-col min-[1720px]:mt-0 mt-10 items-center justify-center ml-[120px] gap-[50px] ">
                 <img
                   src={telegram}
                   alt="telegram"
@@ -171,22 +181,7 @@ const Home: React.FC<IProps> = ({ t }) => {
                 {t("be_ready_button")}
               </p>
             </button>
-            <div className="flex flex-col gap-[100px]">
-              <div className="flex items-center gap-[80px]">
-                <img src={mole1} alt="mole" />
-                <img src={mole2} alt="mole" />
-                <img src={mole3} alt="mole" />
-                <img src={mole4} alt="mole" />
-                <img src={mole5} alt="mole" />
-              </div>
-              <div className="flex items-center gap-[80px]">
-                <img src={mole6} alt="mole" />
-                <img src={mole7} alt="mole" />
-                <img src={mole8} alt="mole" />
-                <img src={mole9} alt="mole" />
-                <img src={mole10} alt="mole" />
-              </div>
-            </div>
+            <Ticker />
           </div>
           <div
             id="presale"

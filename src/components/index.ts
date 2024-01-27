@@ -5,5 +5,15 @@ import Roadmap from "./Roadmap";
 import Tokenomics from "./Tokenomics";
 import Team from "./Team";
 import FAQ from "./FAQ";
+import Ticker from "./Ticker";
 
-export { Header, Footer, LanguagesModal, Roadmap, Tokenomics, Team, FAQ };
+export {
+  Header,
+  Footer,
+  LanguagesModal,
+  Roadmap,
+  Tokenomics,
+  Team,
+  FAQ,
+  Ticker,
+};
