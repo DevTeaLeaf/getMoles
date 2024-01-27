@@ -40,6 +40,8 @@ import doImg from "./img/do.svg";
 import done from "./img/done.svg";
 import progress from "./img/inProgress.svg";
 
+import avatar1 from "./img/avatar1.svg";
+
 export {
   logo,
   h1_logo,
@@ -74,4 +76,5 @@ export {
   doImg,
   done,
   progress,
+  avatar1,
 };

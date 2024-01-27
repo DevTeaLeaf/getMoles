@@ -4,55 +4,13 @@ import { TFunction } from "i18next";
 
 import { Donut } from "./Donut";
 
+import { TOKENOMICS } from "../../constants";
+
 interface IProps {
   t: TFunction;
 }
 
 const Tokenomics: React.FC<IProps> = ({ t }) => {
-  const TOKENOMICS = [
-    {
-      name: "presale",
-      color: "#6C4EE0",
-      percents: 50,
-      value: "1 500 000 000",
-    },
-    {
-      name: "p2e_staking",
-      color: "#57DBA4",
-      percents: 30,
-      value: "900 000 000",
-    },
-    {
-      name: "dex",
-      color: "#57C3DB",
-      percents: 5,
-      value: "150 000 000",
-    },
-    {
-      name: "community",
-      color: "#835C44",
-      percents: 5,
-      value: "150 000 000",
-    },
-    {
-      name: "team",
-      color: "#C0E13D",
-      percents: 5,
-      value: "150 000 000",
-    },
-    {
-      name: "advisors",
-      color: "#FFB800",
-      percents: 3,
-      value: "90 000 000",
-    },
-    {
-      name: "marketing",
-      color: "#D9D9D9",
-      percents: 2,
-      value: "60 000 000",
-    },
-  ];
   return (
     <div className="flex items-center justify-between relative">
       <div className="flex flex-col gap-20">
