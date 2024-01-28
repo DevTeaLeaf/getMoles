@@ -16,8 +16,8 @@ const FAQ: React.FC<IProps> = ({ t }) => {
     setOpenIndex((prevOpenIndex) => (prevOpenIndex === index ? null : index));
   };
   return (
-    <div id="faq" className="flex flex-col gap-[100px]">
-      <p className="text-[#FFB800] text-[82px] font-bold leading-[80px] tracking-[2px] text-shadow">
+    <div id="faq" className="flex flex-col md:gap-[100px] gap-10 px-5">
+      <p className="text-[#FFB800] xl:text-[84px] sm:text-[64px] text-[40px] xl:leading-[80px] sm:leading-[60px] leadning-10 font-bold  tracking-[2px] text-shadow">
         FAQ
       </p>
       <div className="flex flex-col gap-4">
@@ -34,17 +34,17 @@ const FAQ: React.FC<IProps> = ({ t }) => {
             >
               <div className="py-10 px-9">
                 <div
-                  className={`${textColor} text-[32px] font-bold leading-10`}
+                  className={`${textColor} md:text-[32px] sm:text-[24px] text-[18px] font-bold md:leading-10 sm:leading-8 leading-4`}
                 >
                   {t(item.question)}
                 </div>
                 {isOpen && (
-                  <div className="text-[#3C3EAB] text-[20px] leading-6 mt-5 flex flex-col gap-5">
+                  <div className="text-[#3C3EAB] sm:text-[20px] text-[18px] leading-6 mt-5 flex flex-col gap-5">
                     {item.type === "list" ? (
-                      <div className="flex flex-col gap-10">
+                      <div className="flex flex-col gap-3 sm:gap-10">
                         {item.answers.map((answer) => (
                           <div key={answer?.listHead}>
-                            <h3 className="mb-4 text-[28px]">
+                            <h3 className="mb-4 text-[22px] sm:text-[28px]">
                               {t(answer?.listHead)}
                             </h3>
                             <div className="ml-5 flex flex-col gap-3">
@@ -56,13 +56,13 @@ const FAQ: React.FC<IProps> = ({ t }) => {
                         ))}
                       </div>
                     ) : item.type === "steps" ? (
-                      <div className="flex flex-col gap-[30px]">
+                      <div className="flex flex-col gap-5 sm:gap-[30px]">
                         {item.answers.map((step, i) => (
                           <div
-                            className="flex flex-col gap-[10px]"
+                            className="flex flex-col gap-1 sm:gap-[10px]"
                             key={step.step}
                           >
-                            <h3 className="text-[24px] font-medium leading-7">
+                            <h3 className="sm:text-[24px] text-[20px] font-medium sm:leading-7 leading-4">
                               {i + 1}.{t(step.step)}
                             </h3>
                             <p>{t(step.stepDesc)}</p>

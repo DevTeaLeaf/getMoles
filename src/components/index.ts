@@ -6,6 +6,8 @@ import Tokenomics from "./Tokenomics";
 import Team from "./Team";
 import FAQ from "./FAQ";
 import Ticker from "./Ticker";
+import ReferralEarnings from "./ReferralEarnings";
+import Presale from "./Presale";
 
 export {
   Header,
@@ -16,4 +18,6 @@ export {
   Team,
   FAQ,
   Ticker,
+  ReferralEarnings,
+  Presale,
 };

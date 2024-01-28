@@ -6,17 +6,23 @@ import { TO_LEFT_TICKER, TO_RIGHT_TICKER } from "../../constants";
 
 const Ticker = () => {
   return (
-    <div className="flex flex-col gap-[100px] max-w-[1920px]">
+    <div className="flex items-center justify-center flex-col gap-10 md:gap-[100px] ticker-container w-full mx-auto">
       <HorizontalTicker duration={500000}>
         {TO_LEFT_TICKER.map((image) => (
-          <div className="mx-10 w-[300px] h-[300px]" key={uuidv4()}>
+          <div
+            className="md:mx-10 mx-4 md:w-[300px] md:h-[300px] h-[148px] w-[148px]"
+            key={uuidv4()}
+          >
             <img src={image} alt={image} className="mx-[80px]" />
           </div>
         ))}
       </HorizontalTicker>
       <HorizontalTicker duration={500000} reverse={true}>
         {TO_RIGHT_TICKER.map((image) => (
-          <div className="mx-10 w-[300px] h-[300px]" key={uuidv4()}>
+          <div
+            className="md:mx-10 mx-4 md:w-[300px] md:h-[300px] h-[148px] w-[148px]"
+            key={uuidv4()}
+          >
             <img src={image} alt={image} className="mx-[80px]" />
           </div>
         ))}

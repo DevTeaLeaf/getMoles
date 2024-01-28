@@ -23,21 +23,21 @@ const Roadmap: React.FC<IProps> = ({ t }) => {
     setActiveYear(year);
   };
   return (
-    <div>
+    <div className="md:px-5 px-2 max-w-[1920px] mx-auto text-[#fff]">
       <div
         id="roadmap"
-        className="flex flex-wrap gap-[55px] items-center mb-[50px]"
+        className="flex  md:gap-[55px] items-center mb-5 md:mb-[50px] min-[360px]:flex-nowrap flex-wrap"
       >
-        <p className="text-[#FFB800] text-[82px] font-bold leading-[80px] tracking-[2px] text-shadow">
+        <p className="text-[#FFB800] xl:text-[84px] sm:text-[64px] text-[32px] xl:leading-[80px] sm:leading-[60px] leadning-8 font-bold  tracking-[2px] md:text-shadow mobile-text-shadow">
           {t("roadmap")}
         </p>
-        <div className="flex items-center gap-[10px]">
+        <div className="flex items-center gap-1 md:gap-[10px]">
           {ROADMAP.map(({ year }) => {
             return (
               <p
                 key={year}
                 onClick={() => yearHandler(year)}
-                className={`text-[#FFB800] text-[22px] leading-[120%] cursor-pointer px-4 py-[10px] ${
+                className={`text-[#FFB800] md:text-[22px] text-[16px] md:leading-[120%] leading-[80%] cursor-pointer px-4 py-[10px] ${
                   year === activeYear &&
                   "rounded-[10px] border-[3px] border-[#FFB800]"
                 }`}
@@ -50,9 +50,11 @@ const Roadmap: React.FC<IProps> = ({ t }) => {
       </div>
       <Scrollbars
         renderView={() => (
-          <div className="flex items-start justify-between w-full overflow-x-hidden whitespace-nowrap gap-[10rem]" />
+          <div className="flex items-center justify-between overflow-x-hidden whitespace-nowrap max-w-[1440px] mx-auto gap-[10rem]" />
         )}
-        renderTrackHorizontal={() => <div className="roadmapTrack" />}
+        renderTrackHorizontal={() => (
+          <div className="roadmapTrack max-w-[1440px] mx-auto" />
+        )}
         renderThumbHorizontal={() => <div className="roadmapThumb" />}
         thumbSize={200}
         universal={true}
