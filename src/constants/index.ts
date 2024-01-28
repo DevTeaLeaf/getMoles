@@ -221,32 +221,32 @@ const TOKENOMICS = [
 const TEAM = [
   {
     userName: "@Andrew",
-    description: "Project Lead / Founder",
+    description: "team_description_1",
     avatar: avatar1,
   },
   {
     userName: "@Shamshi",
-    description: "Marketing Lead",
+    description: "team_description_2",
     avatar: avatar2,
   },
   {
     userName: "@TaiNa",
-    description: "Content / Operations Lead",
+    description: "team_description_3",
     avatar: avatar3,
   },
   {
     userName: "@Leaf",
-    description: "Frontend / Blockchain dev",
+    description: "team_description_4",
     avatar: avatar4,
   },
   {
     userName: "@SI",
-    description: "Graphic Design Department",
+    description: "team_description_5",
     avatar: avatar5,
   },
   {
     userName: "@Misha",
-    description: "Smart contract develoment",
+    description: "team_description_6",
     avatar: avatar6,
   },
 ];

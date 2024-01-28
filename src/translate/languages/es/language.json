@@ -96,5 +96,11 @@
   "answer_18": "Ingrese la cantidad de tokens $TALPA que desea comprar. Tenga en cuenta que puede comprar por al menos 10 usdt. Sin embargo, para completar la transacción, debe asegurarse de tener suficiente Matic en su billetera para cubrir la tarifa del gas.",
   "answer_19": "COMPLETA TU COMPRA",
   "answer_20": "Una vez que ingrese el monto de $TALPA que desea comprar, se le pedirá que apruebe la transacción. La compra se enviará a la cadena de bloques después de hacer clic en el botón “Aprobar”. La confirmación puede tardar desde 5 segundos hasta varios minutos dependiendo de la congestión de la red y el contrato. Debes esperar hasta que se complete la compra sin apagar la página actual.",
-  "all_rights": "2024 - Todos los derechos registrados"
+  "all_rights": "2024 - Todos los derechos registrados",
+  "team_description_1": "Líder / Fundador del proyecto",
+  "team_description_2": "Líder de marketing",
+  "team_description_3": "Líder de Contenido/Operaciones",
+  "team_description_4": "Desarrollador frontend/blockchain",
+  "team_description_5": "Departamento de Diseño Gráfico",
+  "team_description_6": "Desarrollo de contratos inteligentes"
 }

@@ -96,5 +96,11 @@
   "answer_18": "Entrez le nombre de jetons $TALPA que vous souhaitez acheter. Veuillez noter que vous pouvez acheter pour au moins 10 USD. Cependant, pour finaliser la transaction, vous devez vous assurer que vous disposez de suffisamment de Matic dans votre portefeuille pour couvrir les frais d'essence.",
   "answer_19": "TERMINER VOTRE ACHAT",
   "answer_20": "Une fois que vous aurez entré le montant de $TALPA que vous souhaitez acheter, vous serez invité à approuver la transaction. L'achat sera envoyé à la blockchain après avoir cliqué sur le bouton « Approuver ». La confirmation peut prendre de 5 secondes à plusieurs minutes en fonction de la congestion du réseau et du contrat. Vous devez attendre la fin de l'achat sans désactiver la page en cours.",
-  "all_rights": "2024 - Tous droits enregistrés"
+  "all_rights": "2024 - Tous droits enregistrés",
+  "team_description_1": "Chef de projet / Fondateur",
+  "team_description_2": "Responsable marketing",
+  "team_description_3": "Responsable du contenu / des opérations",
+  "team_description_4": "Développeur Frontend / Blockchain",
+  "team_description_5": "Département de conception graphique",
+  "team_description_6": "Développement de contrats intelligents"
 }

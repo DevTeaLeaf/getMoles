@@ -16,12 +16,17 @@ const Team: React.FC<IProps> = ({ t }) => {
       </p>
       <div className="flex flex-wrap gap-[150px] px-[250px]">
         {TEAM.map((member) => (
-          <div className="flex flex-col items-center" key={member.userName}>
+          <div
+            className="flex flex-col justify-center items-center"
+            key={member.userName}
+          >
             <img src={member.avatar} alt="avatar" />
-            <h3 className="text-[#FFB800] text-[36px] font-bold leading-10 tracking-[2px]">
+            <h3 className="text-[#FFB800] text-[36px] font-bold text-center leading-10 tracking-[2px]">
               {member.userName}
             </h3>
-            <p className="text-[24px] leading-9">{member.description}</p>
+            <p className="text-[24px] leading-9 max-w-[350px] text-center">
+              {t(member.description)}
+            </p>
           </div>
         ))}
       </div>

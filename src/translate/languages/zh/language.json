@@ -96,5 +96,11 @@
   "answer_18": "输入您要购买的 $TALPA 代币数量。请注意，您可以至少 10 USDT 购买。然而，要完成交易，您需要确保钱包中有足够的 Matic 来支付汽油费。",
   "answer_19": "完成您的购买",
   "answer_20": "输入您想要购买的 $TALPA 金额后，系统将提示您批准交易。点击“批准”按钮后，购买将被发送到区块链。确认可能需要 5 秒到几分钟，具体取决于网络拥塞情况和合同。您必须等待购买完成，并且不能关闭当前页面。",
-  "all_rights": "2024 - 注册所有权利"
+  "all_rights": "2024 - 注册所有权利",
+  "team_description_1": "项目负责人/创始人",
+  "team_description_2": "营销主管",
+  "team_description_3": "内容/运营主管",
+  "team_description_4": "前端/区块链开发",
+  "team_description_5": "平面设计系",
+  "team_description_6": "智能合约开发"
 }

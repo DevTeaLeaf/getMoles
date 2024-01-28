@@ -14,6 +14,7 @@ import {
   FAQ,
   Ticker,
 } from "./components";
+
 import {
   h1_logo,
   moles,
@@ -27,6 +28,8 @@ import {
   hammer,
   referralBg,
   mole9,
+  mole21,
+  mole6,
 } from "./assets";
 
 interface IProps {
@@ -77,7 +80,12 @@ const Home: React.FC<IProps> = ({ t }) => {
             />
           </div>
 
-          <div id="about">
+          <div className="relative" id="about">
+            <img
+              src={mole6}
+              alt="mole"
+              className="w-[736px] h-[736px] absolute z-[-1] right-[20%] top-[5%]"
+            />
             <h1 className="text-[#FFB800] max-w-[1180px] font-bold text-[84px] leading-[80px]">
               {t("home_h1")}
             </h1>
@@ -172,8 +180,13 @@ const Home: React.FC<IProps> = ({ t }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center gap-[72px]">
-            <h1 className="text-[84px] text-[#FFB800] font-bold leading-[80px]">
+          <div className="flex flex-col items-start gap-[72px] relative">
+            <img
+              src={mole21}
+              alt="mole"
+              className="absolute z-[-1] right-0 top-[-20%]"
+            />
+            <h1 className="text-[84px] text-[#FFB800] font-bold leading-[80px] max-w-[1100px]">
               {t("be_ready_h1")}
             </h1>
             <button className="rounded-3xl bg-transparent border border-[#FFB800] w-[315px]">
@@ -188,6 +201,9 @@ const Home: React.FC<IProps> = ({ t }) => {
             className="flex items-stretch justify-evenly gap-[50px]"
           >
             <div className="flex flex-col justify-between">
+              <p className="text-[#FFB800] text-[82px] font-bold leading-[80px] tracking-[2px] text-shadow mb-[72px]">
+                {t("presale")}
+              </p>
               <h3 className="text-[36px] text-[#BAB5FF] font-bold uppercase tracking-wide">
                 {t("price_growing")}
               </h3>
@@ -221,9 +237,13 @@ const Home: React.FC<IProps> = ({ t }) => {
                 <p className="text-[#9C9AB6]">{t("hurry_buy")}</p>
                 <p className="text-[#D89C01] font-black">1$</p>
               </div>
-              <img src={mole9} alt="mole" className="mt-20 w-full" />
+              <img
+                src={mole9}
+                alt="mole"
+                className="mt-20 w-[734px] h-[734px]"
+              />
             </div>
-            <div className="flex flex-col justify-between">
+            <div className="flex flex-col justify-center gap-[90px]">
               <div className="flex flex-col items-center gap-5 min-w-[650px]">
                 <div className="flex items-center justify-between w-full leading-[22px] font-medium">
                   <p className="text-[#DEDEDE] text-[24px]">
