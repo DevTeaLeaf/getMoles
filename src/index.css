@@ -79,20 +79,6 @@ body {
 .about {
   display: flex;
 }
-.ticker-container {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-}
-
-.ticker-list {
-  display: flex;
-  animation: ticker 20s linear infinite; /* Измените продолжительность анимации по вашему усмотрению */
-}
-
-.ticker-list li {
-  margin-right: 20px; /* Расстояние между изображениями */
-}
 
 @keyframes ticker {
   0% {
