@@ -26,7 +26,7 @@ import {
   youtube,
   hammer,
   referralBg,
-  mole8,
+  mole9,
 } from "./assets";
 
 interface IProps {
@@ -221,7 +221,7 @@ const Home: React.FC<IProps> = ({ t }) => {
                 <p className="text-[#9C9AB6]">{t("hurry_buy")}</p>
                 <p className="text-[#D89C01] font-black">1$</p>
               </div>
-              <img src={mole8} alt="mole" className="mt-20 w-full" />
+              <img src={mole9} alt="mole" className="mt-20 w-full" />
             </div>
             <div className="flex flex-col justify-between">
               <div className="flex flex-col items-center gap-5 min-w-[650px]">
@@ -305,7 +305,7 @@ const Home: React.FC<IProps> = ({ t }) => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center relative">
             <h1 className="text-[#FFB800] font-bold text-[84px] leading-[80px] tracking-[2px]">
               {t("referral_earnings")}
             </h1>
@@ -345,7 +345,11 @@ const Home: React.FC<IProps> = ({ t }) => {
             <button className="bg-[#FFB800] rounded-[18px] min-w-[300px]">
               <p className="py-5 px-[10px] font-black">{t("copy_ref_link")}</p>
             </button>
-            <img src={referralBg} alt="bg" className="absolute z-[-1]" />
+            <img
+              src={referralBg}
+              alt="bg"
+              className="absolute top-[-10%] z-[-1]"
+            />
           </div>
           <Roadmap />
           <Tokenomics />
