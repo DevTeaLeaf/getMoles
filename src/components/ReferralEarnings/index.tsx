@@ -30,7 +30,7 @@ const ReferralEarnings: React.FC<IProps> = ({ t }) => {
 
             <p className="flex gap-2 items-center max-w-[220px] font-bold leading-[125%] uppercase">
               <span className="text-[15px] text-[#3C3EAB]">
-                {t("referral_h3_1")}
+                {t("referral_h3_2")}
               </span>
             </p>
           </div>
