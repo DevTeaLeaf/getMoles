@@ -27,8 +27,6 @@ import {
   mole20,
 } from "../assets";
 
-import { generateMoleArray } from "../utils";
-
 import type { TFAQ } from "../types";
 
 const ROADMAP = [
@@ -292,24 +290,30 @@ const HOME_FAQ: TFAQ[] = [
   },
 ];
 
-const TO_LEFT_TICKER = generateMoleArray(
-  [mole1, mole2, mole3, mole4, mole5, mole6, mole7, mole8, mole9, mole10],
-  5
-);
-const TO_RIGHT_TICKER = generateMoleArray(
-  [
-    mole11,
-    mole12,
-    mole13,
-    mole14,
-    mole15,
-    mole16,
-    mole17,
-    mole18,
-    mole19,
-    mole20,
-  ],
-  5
-);
+const TO_LEFT_TICKER = [
+  mole1,
+  mole2,
+  mole3,
+  mole4,
+  mole5,
+  mole6,
+  mole7,
+  mole8,
+  mole9,
+  mole10,
+];
+
+const TO_RIGHT_TICKER = [
+  mole11,
+  mole12,
+  mole13,
+  mole14,
+  mole15,
+  mole16,
+  mole17,
+  mole18,
+  mole19,
+  mole20,
+];
 
 export { ROADMAP, TOKENOMICS, TEAM, HOME_FAQ, TO_LEFT_TICKER, TO_RIGHT_TICKER };
