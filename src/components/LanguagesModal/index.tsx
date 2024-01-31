@@ -9,7 +9,8 @@ interface IProps {
 }
 
 const LanguagesModal: React.FC<IProps> = ({ active, setActive }) => {
-  const changeLanguage = (lng: string) => {
+  const changeLanguage = (lng: string, evt: React.MouseEvent) => {
+    evt.stopPropagation();
     i18n.changeLanguage(lng);
     setActive(false);
   };
@@ -23,7 +24,7 @@ const LanguagesModal: React.FC<IProps> = ({ active, setActive }) => {
     >
       <div className="py-[10px] px-5 flex flex-col items-start gap-3">
         <div
-          onClick={() => changeLanguage("en")}
+          onClick={(evt) => changeLanguage("en", evt)}
           className={`flex items-center gap-[10px] cursor-pointer hover:opacity-100 transition-opacity duration-200 ${
             i18n.language !== "en" && "opacity-50"
           }`}
@@ -32,7 +33,7 @@ const LanguagesModal: React.FC<IProps> = ({ active, setActive }) => {
           <p>English</p>
         </div>
         <div
-          onClick={() => changeLanguage("fr")}
+          onClick={(evt) => changeLanguage("fr", evt)}
           className={`flex items-center gap-[10px] cursor-pointer hover:opacity-100 transition-opacity duration-200 ${
             i18n.language !== "fr" && "opacity-50"
           }`}
@@ -41,7 +42,7 @@ const LanguagesModal: React.FC<IProps> = ({ active, setActive }) => {
           <p>Français</p>
         </div>
         <div
-          onClick={() => changeLanguage("ru")}
+          onClick={(evt) => changeLanguage("ru", evt)}
           className={`flex items-center gap-[10px] cursor-pointer hover:opacity-100 transition-opacity duration-200 ${
             i18n.language !== "ru" && "opacity-50"
           }`}
@@ -50,7 +51,7 @@ const LanguagesModal: React.FC<IProps> = ({ active, setActive }) => {
           <p>Русский</p>
         </div>
         <div
-          onClick={() => changeLanguage("es")}
+          onClick={(evt) => changeLanguage("es", evt)}
           className={`flex items-center gap-[10px] cursor-pointer hover:opacity-100 transition-opacity duration-200 ${
             i18n.language !== "es" && "opacity-50"
           }`}
@@ -59,7 +60,7 @@ const LanguagesModal: React.FC<IProps> = ({ active, setActive }) => {
           <p>Español</p>
         </div>
         <div
-          onClick={() => changeLanguage("zh")}
+          onClick={(evt) => changeLanguage("zh", evt)}
           className={`flex items-center gap-[10px] cursor-pointer hover:opacity-100 transition-opacity duration-200 ${
             i18n.language !== "zh" && "opacity-50"
           }`}

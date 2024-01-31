@@ -198,11 +198,14 @@ const Home: React.FC<IProps> = ({ t }) => {
               <h1 className="min-[1820px]:text-[84px] xl:text-[64px] text-[32px] min-[1820px]:leading-[80px] lg:leading-[60px] leading-[35px] text-[#FFB800] font-bold min-[1820px]:max-w-[1180px] lg:max-w-[900px] md:max-w-[600px] max-w-[320px]  md:text-shadow mobile-text-shadow">
                 {t("be_ready_h1")}
               </h1>
-              <button className="rounded-3xl bg-transparent border border-[#FFB800] md:w-[315px] w-[210px]">
-                <p className="montserrat text-[20px] font-black py-5">
+              <a
+                href="#presale"
+                className="rounded-3xl bg-transparent border border-[#FFB800] md:w-[315px] w-[210px]"
+              >
+                <p className="montserrat text-[20px] font-black py-5 text-center">
                   {t("be_ready_button")}
                 </p>
-              </button>
+              </a>
               <Ticker />
             </div>
             <Presale />
