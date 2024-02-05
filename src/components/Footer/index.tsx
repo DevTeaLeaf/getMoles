@@ -2,7 +2,9 @@ import { withTranslation } from "react-i18next";
 
 import { TFunction } from "i18next";
 
-import { discord, logo, telegram, x, youtube } from "../../assets";
+import { logo } from "../../assets";
+
+import { SOCIAL_NETWORKS } from "../../constants";
 
 interface IProps {
   t: TFunction;
@@ -26,10 +28,11 @@ const Footer: React.FC<IProps> = ({ t }) => {
         {t("all_rights")}
       </p>
       <div className="flex items-center gap-5">
-        <img src={telegram} alt="telegram" className="cursor-pointer" />
-        <img src={x} alt="x" />
-        <img src={discord} alt="discord" className="cursor-pointer" />
-        <img src={youtube} alt="youtube" className="cursor-pointer" />
+        {SOCIAL_NETWORKS.map((social) => (
+          <a key={social.link} href={social.link} target="_blank">
+            <img src={social.img} alt={social.alt} className="cursor-pointer" />
+          </a>
+        ))}
       </div>
     </div>
   );

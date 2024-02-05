@@ -25,6 +25,10 @@ import {
   mole18,
   mole19,
   mole20,
+  telegram,
+  x,
+  discord,
+  youtube,
 } from "../assets";
 
 import type { TFAQ } from "../types";
@@ -316,4 +320,70 @@ const TO_RIGHT_TICKER = [
   mole20,
 ];
 
-export { ROADMAP, TOKENOMICS, TEAM, HOME_FAQ, TO_LEFT_TICKER, TO_RIGHT_TICKER };
+/********** ANIMATIONS **********/
+const FADE_IN_BOTTOM_VARIANTS = {
+  hidden: { opacity: 0, y: 150 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } },
+  visible1: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1, ease: "easeOut" },
+  },
+  visible2: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.3, ease: "easeOut" },
+  },
+  visible3: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.6, ease: "easeOut" },
+  },
+  visible4: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.7, ease: "easeOut" },
+  },
+  visible5: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.8, ease: "easeOut" },
+  },
+  visible6: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.9, ease: "easeOut" },
+  },
+};
+
+const TOKENOMICS_SLICES = {
+  hidden: { width: 0 },
+  visible1: { width: "50%", transition: { duration: 1.3, ease: "easeOut" } },
+  visible2: { width: "30%", transition: { duration: 1.3, ease: "easeOut" } },
+  visible3: { width: "5%", transition: { duration: 0.8, ease: "easeOut" } },
+  visible4: { width: "5%", transition: { duration: 0.8, ease: "easeOut" } },
+  visible5: { width: "5%", transition: { duration: 0.8, ease: "easeOut" } },
+  visible6: { width: "3%", transition: { duration: 0.8, ease: "easeOut" } },
+  visible7: { width: "2%", transition: { duration: 0.8, ease: "easeOut" } },
+};
+
+/********** SOCIALS **********/
+
+const SOCIAL_NETWORKS = [
+  { img: telegram, alt: "telegram", link: "https://t.me/+jlYkQmWfMMo5NjYy" },
+  { img: x, alt: "x", link: "https://twitter.com/Getmoles2" },
+  { img: discord, alt: "discord", link: "https://discord.gg/paKVm6uP" },
+  { img: youtube, alt: "youtube", link: "http://www.youtube.com/@Getmoles" },
+];
+
+export {
+  ROADMAP,
+  TOKENOMICS,
+  TEAM,
+  HOME_FAQ,
+  TO_LEFT_TICKER,
+  TO_RIGHT_TICKER,
+  FADE_IN_BOTTOM_VARIANTS,
+  TOKENOMICS_SLICES,
+  SOCIAL_NETWORKS,
+};

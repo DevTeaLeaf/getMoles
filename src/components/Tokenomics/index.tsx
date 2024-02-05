@@ -1,21 +1,42 @@
+import { useState } from "react";
+
 import { withTranslation } from "react-i18next";
 
 import { TFunction } from "i18next";
 
+import { motion } from "framer-motion";
+
 import { Donut } from "./Donut";
 import { MobileDonut } from "./MobileDonut";
 
-import { TOKENOMICS } from "../../constants";
+import { TOKENOMICS, TOKENOMICS_SLICES } from "../../constants";
+
+import type { TTokenomicsSliceAnimation } from "../../types";
 
 interface IProps {
   t: TFunction;
 }
 
 const Tokenomics: React.FC<IProps> = ({ t }) => {
+  const [animations, setAnimations] = useState<TTokenomicsSliceAnimation>({
+    presale: false,
+    p2e_staking: false,
+    dex: false,
+    community: false,
+    team: false,
+    advisors: false,
+    marketing: false,
+  });
+
+  const slicesAnimation = {
+    false: { x: 0 },
+    true: { x: -30, transition: { duration: 0.5, ease: "easeOut" } },
+  };
+
   return (
     <div id="tokenomics">
       <div className="hidden md:flex min-[1640px]:gap-[200px] xl:gap-[150px] px-5 relative xl:flex-row flex-col gap-[250px] xl:items-start items-center">
-        <div className="flex flex-col gap-20 mt-[60px]">
+        <div className="flex flex-col gap-20 mt-[60px] z-[2]">
           <h1 className="text-[#FFB800] xl:text-[84px] sm:text-[64px] text-[40px] xl:leading-[80px] sm:leading-[60px] leadning-10 font-bold  tracking-[2px] text-shadow">
             {t("tokenomics")}
           </h1>
@@ -79,7 +100,7 @@ const Tokenomics: React.FC<IProps> = ({ t }) => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-[52px] min-[1640px]:max-w-[880px] xl:max-w-[650px] max-w-full w-full">
+        <div className="flex flex-col gap-[52px] min-[1640px]:max-w-[880px] xl:max-w-[650px] max-w-full w-full z-[2]">
           <div className="flex items-center justify-between gap-[200px] xl:gap-[100px] poppins">
             <h3 className="text-shadow font-bold min-[1640px]:text-[48px] text-[36px] min-[1640px]:leading-[54px] leading-[44px] tracking-[-1px]">
               {t("governance_token")}
@@ -104,43 +125,51 @@ const Tokenomics: React.FC<IProps> = ({ t }) => {
             </div>
           </div>
           <div className="flex flex-col gap-8">
-            {TOKENOMICS.map((_) => (
-              <div
+            {TOKENOMICS.map((_, index) => (
+              <motion.div
                 key={_.name}
-                className="flex items-center justify-between gap-20"
+                variants={slicesAnimation}
+                initial="false"
+                animate={animations[_.name] ? "true" : "false"}
               >
-                <h3 className="text-[#D2D2CF] text-[24px] text-shadow font-medium leading-8 tracking-[-0.5px] w-[30%]">
-                  {t(_.name)}
-                </h3>
+                <div className="flex items-center justify-between gap-20">
+                  <h3 className="text-[#D2D2CF] text-[24px] text-shadow font-medium leading-8 tracking-[-0.5px] w-[30%]">
+                    {t(_.name)}
+                  </h3>
 
-                <div className="flex-grow relative max-w-[560px]">
-                  <div
-                    style={{ borderColor: _.color }}
-                    className="relative w-full h-[44px] bg-transparent border-[2px] rounded-full overflow-hidden"
-                  >
+                  <div className="flex-grow relative max-w-[560px]">
                     <div
-                      style={{
-                        backgroundColor: _.color,
-                        width: `${_.percents}%`,
-                      }}
-                      className="h-full transition-all rounded-full"
-                    ></div>
-                    <p className="absolute inset-0 flex items-center justify-center text-[#FFB800] leading-6 text-[24px]">
-                      {_.percents}%
-                    </p>
-                    <p className="absolute inset-0 flex items-center justify-end pr-2 text-[#A5A5A5] leading-4">
-                      {_.value}
-                    </p>
+                      style={{ borderColor: _.color }}
+                      className="relative w-full h-[44px] bg-transparent border-[2px] rounded-full overflow-hidden"
+                    >
+                      <motion.div
+                        initial="hidden"
+                        variants={TOKENOMICS_SLICES}
+                        whileInView={`visible${index + 1}`}
+                        viewport={{ once: true }}
+                        style={{
+                          backgroundColor: _.color,
+                          width: `${_.percents}%`,
+                        }}
+                        className="h-full transition-all rounded-full"
+                      ></motion.div>
+                      <p className="absolute inset-0 flex items-center justify-center text-[#FFB800] leading-6 text-[24px]">
+                        {_.percents}%
+                      </p>
+                      <p className="absolute inset-0 flex items-center justify-end pr-2 text-[#A5A5A5] leading-4">
+                        {_.value}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
-        <div className="absolute top-[-20%] z-[-1] xl:ml-[-200px]">
-          <Donut />
-        </div>
+        <motion.div className="absolute top-[-20%]  xl:ml-[-200px]">
+          <Donut setAnimations={setAnimations} />
+        </motion.div>
       </div>
       <div className="md:hidden flex flex-col items-start relative min-[460px]:px-5 px-3 gap-5">
         <h3 className="text-[#FFB800] text-[32px] font-bold leading-9 mobile-text-shadow">
@@ -201,7 +230,7 @@ const Tokenomics: React.FC<IProps> = ({ t }) => {
             </div>
           </div>
         </div>
-        <div className="absolute right-0 top-[15%] z-[-1]">
+        <div className="absolute right-0 top-[-5%] z-[-1]">
           <MobileDonut />
         </div>
       </div>

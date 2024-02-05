@@ -1,5 +1,7 @@
 import { withTranslation } from "react-i18next";
 
+import { motion } from "framer-motion";
+
 import { TFunction } from "i18next";
 
 import { hammer, mole9 } from "../../assets";
@@ -9,6 +11,11 @@ interface IProps {
 }
 
 const Presale: React.FC<IProps> = ({ t }) => {
+  const fadeInLeftVariants = {
+    hidden: { x: -250 },
+    visible: { x: 0, transition: { duration: 1.5, ease: "easeOut" } },
+  };
+
   return (
     <div
       id="presale"
@@ -61,11 +68,18 @@ const Presale: React.FC<IProps> = ({ t }) => {
             1$
           </p>
         </div>
-        <img
-          src={mole9}
-          alt="mole"
-          className="min-[1600px]:mt-20 mt-10 min-[1600px]:w-[734px] min-[1600px]:h-[734px] w-[650px] h-[650px] lg:block hidden"
-        />
+        <motion.div
+          variants={fadeInLeftVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <img
+            src={mole9}
+            alt="mole"
+            className="min-[1600px]:mt-20 mt-10 min-[1600px]:w-[734px] min-[1600px]:h-[734px] w-[650px] h-[650px] lg:block hidden"
+          />
+        </motion.div>
       </div>
       <div className="flex flex-col justify-center gap-[90px]">
         <div className="flex flex-col items-center gap-5 min-w-[320px] md:min-w-[650px]">
@@ -141,6 +155,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
               <button className="bg-[#FFB800] rounded-[18px]">
                 <p className="py-5 px-[10px] font-black">{t("confirm")}</p>
               </button>
+
               <img
                 src={hammer}
                 alt="hammer"

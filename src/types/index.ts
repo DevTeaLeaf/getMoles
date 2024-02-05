@@ -28,4 +28,8 @@ type TStepsQuestion = {
 
 type TFAQ = TNormalQuestion | TListQuestion | TStepsQuestion;
 
-export type { TFAQ };
+type TTokenomicsSliceAnimation = {
+  [key: string]: boolean;
+};
+
+export type { TFAQ, TTokenomicsSliceAnimation };

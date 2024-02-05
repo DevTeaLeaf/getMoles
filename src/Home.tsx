@@ -3,6 +3,8 @@ import { withTranslation } from "react-i18next";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 import { useAccount } from "wagmi";
 
+import { motion } from "framer-motion";
+
 import { TFunction } from "i18next";
 
 import {
@@ -17,19 +19,9 @@ import {
   Presale,
 } from "./components";
 
-import {
-  h1_logo,
-  moles,
-  rocket,
-  group,
-  target,
-  discord,
-  x,
-  telegram,
-  youtube,
-  mole21,
-  mole6,
-} from "./assets";
+import { FADE_IN_BOTTOM_VARIANTS, SOCIAL_NETWORKS } from "./constants";
+
+import { h1_logo, moles, rocket, group, target, mole21, mole6 } from "./assets";
 
 interface IProps {
   t: TFunction;
@@ -77,20 +69,27 @@ const Home: React.FC<IProps> = ({ t }) => {
                   </a>
                 </div>
               </div>
-              <img
-                src={moles}
-                alt="Moles"
-                className="min-[1720px]:ml-[-20px] z-[-1] mt-[-50px] min-[1720px]:mt-0 min-[1820px]:w-[880px] w-[650px]"
-              />
+              <motion.div
+                variants={FADE_IN_BOTTOM_VARIANTS}
+                initial="hidden"
+                animate="visible"
+                className="z-[-1]"
+              >
+                <img
+                  src={moles}
+                  alt="Moles"
+                  className="min-[1720px]:ml-[-20px] mt-[-50px] min-[1720px]:mt-0 min-[1820px]:w-[880px] w-[650px]"
+                />
+              </motion.div>
             </div>
-
             <div className="relative px-5" id="about">
               <img
                 src={mole6}
                 alt="mole"
                 className="min-[1820px]:w-[736px] min-[1820px]:h-[736px] w-[650px] h-[650px] absolute z-[-1] min-[1820px]:right-[20%] right-[30%] top-[5%] lg:block hidden"
               />
-              <h1 className="text-[#FFB800] min-[1820px]:max-w-[1180px] max-w-[700px] font-bold min-[1820px]:text-[84px] sm:text-[64px] text-[30px] min-[1820px]:leading-[80px] md:leading-[60px] leading-10 text-shadow">
+
+              <h1 className="text-[#FFB800] min-[1820px]:max-w-[1180px] max-w-[700px] font-bold min-[1820px]:text-[84px] sm:text-[64px] text-[30px] min-[1820px]:leading-[80px] md:leading-[60px] leading-10 md:text-shadow mobile-text-shadow">
                 {t("home_h1")}
               </h1>
               <h3 className="min-[1820px]:leading-[83px] leading-[30px] min-[1820px]:text-[48px] sm:text-[40px] text-[24px] font-semibold sm:py-10 py-5">
@@ -98,7 +97,13 @@ const Home: React.FC<IProps> = ({ t }) => {
               </h3>
               <div className="about flex xl:flex-row flex-col">
                 <div className="flex items-center lg:items-stretch  lg:flex-row flex-col">
-                  <div className="bg-[#fff] rounded-[53px] min-[1820px]:max-w-[350px] lg:max-w-[300px] max-w-[500px] lg:min-h-[650px] card-shadow">
+                  <motion.div
+                    variants={FADE_IN_BOTTOM_VARIANTS}
+                    initial="hidden"
+                    whileInView="visible1"
+                    viewport={{ once: true }}
+                    className="bg-[#fff] rounded-[53px] min-[1820px]:max-w-[350px] lg:max-w-[300px] max-w-[500px] lg:min-h-[650px] card-shadow"
+                  >
                     <div className="p-10 flex flex-col justify-between h-full lg:gap-0 gap-10">
                       <div className="flex flex-col gap-4">
                         <h3 className="text-[#3C3EAB] min-[1820px]:leading-10 leading-8 min-[1820px]:text-[28px] text-[24px] font-medium">
@@ -114,8 +119,14 @@ const Home: React.FC<IProps> = ({ t }) => {
                         className="max-w-[83px] max-h-[83px] items-end"
                       />
                     </div>
-                  </div>
-                  <div className="bg-[#fff] rounded-[53px] min-[1820px]:max-w-[350px] lg:max-w-[300px] max-w-[500px] lg:min-h-[650px] card-shadow lg:ml-[-10px] lg:mt-0 mt-[-50px]">
+                  </motion.div>
+                  <motion.div
+                    variants={FADE_IN_BOTTOM_VARIANTS}
+                    initial="hidden"
+                    whileInView="visible2"
+                    viewport={{ once: true }}
+                    className="bg-[#fff] rounded-[53px] min-[1820px]:max-w-[350px] lg:max-w-[300px] max-w-[500px] lg:min-h-[650px] card-shadow lg:ml-[-10px] lg:mt-0 mt-[-50px]"
+                  >
                     <div className="p-10 flex flex-col justify-between h-full lg:gap-0 gap-10">
                       <div className="flex flex-col gap-4">
                         <h3 className="text-[#3C3EAB] min-[1820px]:leading-10 leading-8 min-[1820px]:text-[28px] text-[24px] font-medium">
@@ -131,8 +142,14 @@ const Home: React.FC<IProps> = ({ t }) => {
                         className="max-w-[83px] max-h-[83px] items-end"
                       />
                     </div>
-                  </div>
-                  <div className="bg-[#FFB800] rounded-[53px] min-[1820px]:max-w-[745px] lg:max-w-[650px] max-w-[500px] min-h-[650px] card-shadow lg:ml-[-10px] lg:mt-0 mt-[-50px]">
+                  </motion.div>
+                  <motion.div
+                    variants={FADE_IN_BOTTOM_VARIANTS}
+                    initial="hidden"
+                    whileInView="visible3"
+                    viewport={{ once: true }}
+                    className="bg-[#FFB800] rounded-[53px] min-[1820px]:max-w-[745px] lg:max-w-[650px] max-w-[500px] min-h-[650px] card-shadow lg:ml-[-10px] lg:mt-0 mt-[-50px]"
+                  >
                     <div className="p-10 flex flex-col justify-between h-full lg:gap-0 gap-10">
                       <div className="flex flex-col gap-4 text-[#fff]">
                         <h3 className="min-[1820px]:leading-10 leading-8 min-[1820px]:text-[28px] text-[24px] font-semibold">
@@ -161,30 +178,19 @@ const Home: React.FC<IProps> = ({ t }) => {
                         </button>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 <div className="flex xl:flex-col flex-row min-[1720px]:mt-0 mt-10 items-center justify-center lg:ml-[120px] sm:gap-[50px] gap-5 ">
-                  <img
-                    src={telegram}
-                    alt="telegram"
-                    className="sm:w-[102px] sm:h-[102px] w-[51px] h-[51px]"
-                  />
-                  <img
-                    src={x}
-                    alt="x"
-                    className="sm:w-[102px] sm:h-[102px] w-[51px] h-[51px]"
-                  />
-                  <img
-                    src={discord}
-                    alt="discord"
-                    className="sm:w-[102px] sm:h-[102px] w-[51px] h-[51px]"
-                  />
-                  <img
-                    src={youtube}
-                    alt="youtube"
-                    className="sm:w-[102px] sm:h-[102px] w-[51px] h-[51px]"
-                  />
+                  {SOCIAL_NETWORKS.map((social) => (
+                    <a key={social.link} href={social.link} target="_blank">
+                      <img
+                        src={social.img}
+                        alt={social.alt}
+                        className="sm:w-[102px] sm:h-[102px] w-[51px] h-[51px]"
+                      />
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
@@ -216,7 +222,7 @@ const Home: React.FC<IProps> = ({ t }) => {
 
       <Roadmap />
 
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen md:mt-[100px]">
         <div className="max-w-[1920px] mx-auto text-[#fff] mb-[100px] md:mb-[200px] montserrat flex-1">
           <div className="flex flex-col md:gap-[150px] gap-[50px] mt-[150px]">
             <Tokenomics />

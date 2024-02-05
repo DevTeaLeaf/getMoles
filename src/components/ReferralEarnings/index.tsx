@@ -1,5 +1,7 @@
 import { withTranslation } from "react-i18next";
 
+import { motion } from "framer-motion";
+
 import { TFunction } from "i18next";
 
 import { referralBg } from "../../assets";
@@ -9,6 +11,10 @@ interface IProps {
 }
 
 const ReferralEarnings: React.FC<IProps> = ({ t }) => {
+  const fadeInVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 2, ease: "easeOut" } },
+  };
   return (
     <div className="flex flex-col items-center justify-center relative px-5">
       <h1 className="text-[#FFB800] xl:text-[84px] sm:text-[64px] text-[32px] xl:leading-[80px] sm:leading-[60px] leadning-8 font-bold  tracking-[2px] md:text-shadow mobile-text-shadow">
@@ -50,7 +56,11 @@ const ReferralEarnings: React.FC<IProps> = ({ t }) => {
           {t("copy_ref_link")}
         </p>
       </button>
-      <img
+      <motion.img
+        variants={fadeInVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
         src={referralBg}
         alt="bg"
         className="absolute lg:top-[-10%] top-[20%] z-[-1] md:block hidden"

@@ -7,6 +7,8 @@ import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { EIP6963Connector } from "@web3modal/wagmi";
 
 const walletConnectProjectId = "ca2e9c541f075c8f9f6e898747ea4b8c";
+const TALPA_TOKEN = "0x3995d4d691085aaefd92CC8F6360947c4eeE9ba8";
+const TALPA_CONTRACT = "0xeD53E3989F73E027FcA04Ec0538839F1f1a8b841";
 
 const metadata = {
   name: "GetMoles",
@@ -63,4 +65,12 @@ const wagmiConfig = createConfig({
   publicClient,
 });
 
-export { walletConnectProjectId, polygon, chains, publicClient, wagmiConfig };
+export {
+  walletConnectProjectId,
+  polygon,
+  chains,
+  publicClient,
+  wagmiConfig,
+  TALPA_TOKEN,
+  TALPA_CONTRACT,
+};

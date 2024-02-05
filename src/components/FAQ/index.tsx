@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { withTranslation } from "react-i18next";
 
+import { motion } from "framer-motion";
+
 import { TFunction } from "i18next";
 
-import { HOME_FAQ } from "../../constants";
+import { HOME_FAQ, FADE_IN_BOTTOM_VARIANTS } from "../../constants";
 
 interface IProps {
   t: TFunction;
@@ -15,6 +17,7 @@ const FAQ: React.FC<IProps> = ({ t }) => {
   const toggleItem = (index: any) => {
     setOpenIndex((prevOpenIndex) => (prevOpenIndex === index ? null : index));
   };
+
   return (
     <div id="faq" className="flex flex-col md:gap-[100px] gap-10 px-5">
       <p className="text-[#FFB800] xl:text-[84px] sm:text-[64px] text-[40px] xl:leading-[80px] sm:leading-[60px] leadning-10 font-bold  tracking-[2px] text-shadow">
@@ -25,12 +28,15 @@ const FAQ: React.FC<IProps> = ({ t }) => {
           const isOpen = index === openIndex;
           const backgroundColor = isOpen ? "bg-[#fff]" : "bg-[#2B2D93]";
           const textColor = isOpen ? "text-[#3C3EAB]" : "text-[#FFB800]";
-
           return (
-            <div
+            <motion.div
               key={item.question}
               className={`w-full rounded-[30px] cursor-pointer ${backgroundColor}`}
               onClick={() => toggleItem(index)}
+              variants={FADE_IN_BOTTOM_VARIANTS}
+              initial="hidden"
+              whileInView={`visible${index + 1}`}
+              viewport={{ once: true }}
             >
               <div className="py-10 px-9">
                 <div
@@ -77,7 +83,7 @@ const FAQ: React.FC<IProps> = ({ t }) => {
                   </div>
                 )}
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

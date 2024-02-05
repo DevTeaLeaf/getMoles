@@ -50,7 +50,7 @@ const Roadmap: React.FC<IProps> = ({ t }) => {
       </div>
       <Scrollbars
         renderView={() => (
-          <div className="flex items-center justify-between overflow-x-hidden whitespace-nowrap max-w-[1440px] mx-auto gap-[10rem]" />
+          <div className="flex items-center justify-between overflow-x-hidden whitespace-nowrap max-w-[1440px] mx-auto gap-[8rem] md:gap-[15rem]" />
         )}
         renderTrackHorizontal={() => (
           <div className="roadmapTrack max-w-[1440px] mx-auto" />
