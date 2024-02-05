@@ -4,18 +4,17 @@ import { motion } from "framer-motion";
 
 import { TFunction } from "i18next";
 
+import Timer from "./Timer";
+
 import { hammer, mole9 } from "../../assets";
+
+import { FADE_IN_LEFT_VARIANTS } from "../../constants";
 
 interface IProps {
   t: TFunction;
 }
 
 const Presale: React.FC<IProps> = ({ t }) => {
-  const fadeInLeftVariants = {
-    hidden: { x: -250 },
-    visible: { x: 0, transition: { duration: 1.5, ease: "easeOut" } },
-  };
-
   return (
     <div
       id="presale"
@@ -28,40 +27,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
         <h3 className="min-[1600px]:text-[36px] md:text-[32px] sm:text-[24px] text-[16px] text-[#BAB5FF] font-bold uppercase tracking-wide">
           {t("price_growing")}
         </h3>
-        <div className="flex items-center min-[1600px]:gap-10 md:gap-7 gap-[50px]">
-          <div className="flex flex-col items-center min-[1600px]:gap-[10px] gap-1">
-            <h2 className="min-[1600px]:text-[72px] md:text-[60px] text-[32px]">
-              08
-            </h2>
-            <p className="text-[#C8C8C8] text-[14px] font-light poppins">
-              {t("days")}
-            </p>
-          </div>
-          <div className="flex flex-col items-center min-[1600px]:gap-[10px] gap-1">
-            <h2 className="min-[1600px]:text-[72px] md:text-[60px] text-[32px]">
-              12
-            </h2>
-            <p className="text-[#C8C8C8] text-[14px] font-light poppins">
-              {t("hours")}
-            </p>
-          </div>
-          <div className="flex flex-col items-center min-[1600px]:gap-[10px] gap-1">
-            <h2 className="min-[1600px]:text-[72px] md:text-[60px] text-[32px]">
-              44
-            </h2>
-            <p className="text-[#C8C8C8] text-[14px] font-light poppins">
-              {t("minutes")}
-            </p>
-          </div>
-          <div className="flex flex-col items-center min-[1600px]:gap-[10px] gap-1">
-            <h2 className="min-[1600px]:text-[72px] md:text-[60px] text-[32px]">
-              28
-            </h2>
-            <p className="text-[#C8C8C8] text-[14px] font-light poppins">
-              {t("seconds")}
-            </p>
-          </div>
-        </div>
+        <Timer />
         <div className="flex items-center gap-3 mt-5 min-[1600px]:text-[20px] md:text-[18px] text-[13px]">
           <p className="text-[#9C9AB6]">{t("hurry_buy")}</p>
           <p className="text-[#D89C01] font-black text-[32px] md:text-auto">
@@ -69,7 +35,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
           </p>
         </div>
         <motion.div
-          variants={fadeInLeftVariants}
+          variants={FADE_IN_LEFT_VARIANTS}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}

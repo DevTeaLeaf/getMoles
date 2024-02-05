@@ -33,6 +33,8 @@ import {
 
 import type { TFAQ } from "../types";
 
+const STAGES = ["06.03.2024", "20.03.2024", "03.04.2024"];
+
 const ROADMAP = [
   {
     year: 2023,
@@ -356,6 +358,11 @@ const FADE_IN_BOTTOM_VARIANTS = {
   },
 };
 
+const FADE_IN_LEFT_VARIANTS = {
+  hidden: { x: -250 },
+  visible: { x: 0, transition: { duration: 1.5, ease: "easeOut" } },
+};
+
 const TOKENOMICS_SLICES = {
   hidden: { width: 0 },
   visible1: { width: "50%", transition: { duration: 1.3, ease: "easeOut" } },
@@ -377,6 +384,7 @@ const SOCIAL_NETWORKS = [
 ];
 
 export {
+  STAGES,
   ROADMAP,
   TOKENOMICS,
   TEAM,
@@ -386,4 +394,5 @@ export {
   FADE_IN_BOTTOM_VARIANTS,
   TOKENOMICS_SLICES,
   SOCIAL_NETWORKS,
+  FADE_IN_LEFT_VARIANTS,
 };
