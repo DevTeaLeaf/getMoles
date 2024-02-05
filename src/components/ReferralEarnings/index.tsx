@@ -1,5 +1,9 @@
 import { withTranslation } from "react-i18next";
 
+import { useAccount } from "wagmi";
+
+import { useWeb3Modal } from "@web3modal/wagmi/react";
+
 import { motion } from "framer-motion";
 
 import { TFunction } from "i18next";
@@ -11,6 +15,19 @@ interface IProps {
 }
 
 const ReferralEarnings: React.FC<IProps> = ({ t }) => {
+  const { address, isConnected } = useAccount();
+
+  const { open } = useWeb3Modal();
+
+  const copyRefLink = () => {
+    const currentUrl = new URL(window.location.href);
+
+    currentUrl.searchParams.set("ref", address as string);
+
+    navigator.clipboard.writeText(currentUrl.href);
+    alert("Link copied!");
+  };
+
   const fadeInVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 2, ease: "easeOut" } },
@@ -51,11 +68,25 @@ const ReferralEarnings: React.FC<IProps> = ({ t }) => {
           </div>
         </div>
       </div>
-      <button className="md:bg-[#FFB800] bg-[#FFF] rounded-[18px] min-w-[300px]">
-        <p className="py-5 px-[10px] font-black md:text-[#FFF] text-[#FFB800]">
-          {t("copy_ref_link")}
-        </p>
-      </button>
+      {isConnected ? (
+        <button
+          onClick={copyRefLink}
+          className="md:bg-[#FFB800] bg-[#FFF] rounded-[18px] min-w-[300px]"
+        >
+          <p className="py-5 px-[10px] font-black md:text-[#FFF] text-[#FFB800]">
+            {t("copy_ref_link")}
+          </p>
+        </button>
+      ) : (
+        <button
+          onClick={() => open()}
+          className="md:bg-[#FFB800] bg-[#FFF] rounded-[18px] min-w-[300px]"
+        >
+          <p className="py-5 px-[10px] font-black md:text-[#FFF] text-[#FFB800]">
+            {t("connect_wallet")}
+          </p>
+        </button>
+      )}
       <motion.img
         variants={fadeInVariants}
         initial="hidden"

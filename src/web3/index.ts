@@ -6,9 +6,13 @@ import { InjectedConnector } from "wagmi/connectors/injected";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import { EIP6963Connector } from "@web3modal/wagmi";
 
+import TokenABI from "./abi/Token.json";
+import TokenSaleABI from "./abi/TokenSale.json";
+
 const walletConnectProjectId = "ca2e9c541f075c8f9f6e898747ea4b8c";
-const TALPA_TOKEN = "0x3995d4d691085aaefd92CC8F6360947c4eeE9ba8";
-const TALPA_CONTRACT = "0xeD53E3989F73E027FcA04Ec0538839F1f1a8b841";
+const TALPA = "0xBd151135FD445E1BBe933430FE6DB8D230D136d4";
+const USDT = "0xc2132D05D31c914a87C6611C10748AEb04B58e8F";
+const TOKEN_SALE = "0x088F5D6091653531D9A64F19bE8Ae7DD1251ae8E";
 
 const metadata = {
   name: "GetMoles",
@@ -71,6 +75,9 @@ export {
   chains,
   publicClient,
   wagmiConfig,
-  TALPA_TOKEN,
-  TALPA_CONTRACT,
+  TALPA,
+  USDT,
+  TOKEN_SALE,
+  TokenABI,
+  TokenSaleABI,
 };

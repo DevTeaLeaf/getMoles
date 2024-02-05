@@ -41,6 +41,20 @@
     "type": "event"
   },
   {
+    "inputs": [],
+    "name": "TaplaSoldTotal",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "USDTCollectedTotal",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       { "internalType": "uint256", "name": "amount", "type": "uint256" },
       { "internalType": "address", "name": "refferer", "type": "address" }
@@ -87,7 +101,7 @@
           },
           { "internalType": "bool", "name": "isOpen", "type": "bool" }
         ],
-        "internalType": "struct talTokenSale.StageInfo",
+        "internalType": "struct TalpaTokenSale.StageInfo",
         "name": "",
         "type": "tuple"
       }
@@ -100,6 +114,15 @@
       { "internalType": "uint256", "name": "amountToBuy", "type": "uint256" }
     ],
     "name": "howMuch",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "usdtAmount", "type": "uint256" }
+    ],
+    "name": "howMuchFromUSDT",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"

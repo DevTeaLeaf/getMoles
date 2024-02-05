@@ -1,4 +1,10 @@
+import { useState, useEffect, useRef } from "react";
+
 import { withTranslation } from "react-i18next";
+
+import { usePublicClient } from "wagmi";
+import { formatUnits } from "viem"; //parseUnits
+import { readContract } from "viem/actions";
 
 import { motion } from "framer-motion";
 
@@ -8,13 +14,86 @@ import Timer from "./Timer";
 
 import { hammer, mole9 } from "../../assets";
 
-import { FADE_IN_LEFT_VARIANTS } from "../../constants";
+import { TOKEN_SALE, TokenSaleABI } from "../../web3";
+
+import { formatNumber } from "../../utils";
+
+import { FADE_IN_LEFT_VARIANTS, TOTAL_SCOPE } from "../../constants";
 
 interface IProps {
   t: TFunction;
 }
 
 const Presale: React.FC<IProps> = ({ t }) => {
+  const publicClient = usePublicClient();
+
+  const talpaRef = useRef<HTMLInputElement>(null);
+  const usdtRef = useRef<HTMLInputElement>(null);
+
+  const [inputsValues, setInputsValues] = useState({ talpa: "", usdt: "" });
+  const [raisedData, setRaisedData] = useState({
+    raised: "0",
+    left: "0",
+    percents: 0,
+  });
+
+  const invest = async () => {
+    const currentUrl = new URL(window.location.href);
+    const refValue = currentUrl.searchParams.get("ref");
+
+    if (refValue) {
+      console.log('Value of "ref":', refValue);
+    } else {
+      console.log('Parameter "ref" not found or has no value.');
+    }
+  };
+
+  const handleChange = async (ref: string) => {
+    let inputValue: any = "";
+
+    if (ref === "usdt") {
+      inputValue = usdtRef?.current?.value;
+
+      //  const howMuchFromUSDT = await readContract(publicClient, {
+      //     address: TOKEN_SALE,
+      //     abi: TokenSaleABI,
+      //     functionName: "howMuchFromUSDT",
+      //     args: [parseUnits(inputValue, 6)],
+      //   });
+    }
+
+    if (ref === "talpa") {
+      inputValue = talpaRef?.current?.value;
+    }
+
+    const formatedValue = inputValue.replace(/[^0-9\.]+/g, "");
+
+    setInputsValues((prev) => ({ ...prev, [ref]: formatedValue }));
+  };
+
+  const initData = async () => {
+    let USDTRaised = await readContract(publicClient, {
+      address: TOKEN_SALE,
+      abi: TokenSaleABI,
+      functionName: "USDTCollectedTotal",
+    });
+    USDTRaised = formatUnits(USDTRaised as bigint, 18);
+
+    const scope = Number(TOTAL_SCOPE);
+    const percents = (Number(USDTRaised) / scope) * 100;
+
+    const left = scope - Number(USDTRaised);
+
+    setRaisedData({
+      raised: formatNumber(USDTRaised as string),
+      left: formatNumber(left),
+      percents: percents,
+    });
+  };
+
+  useEffect(() => {
+    initData();
+  }, []);
   return (
     <div
       id="presale"
@@ -54,23 +133,26 @@ const Presale: React.FC<IProps> = ({ t }) => {
               {t("usdt_raised")}
             </p>
             <div className="flex min-[1600px]:text-[36px] md:text-[30px] text-[18px]">
-              <p className="mr-1 text-[#FFB800]">320 900</p> \
-              <p className="ml-1 text-[#DEDEDE]">800 000</p>
+              <p className="mr-1 text-[#FFB800]">{raisedData.raised}</p> \
+              <p className="ml-1 text-[#DEDEDE]">{formatNumber(TOTAL_SCOPE)}</p>
             </div>
           </div>
           <div className="w-full md:h-[6px] h-1 bg-[#4F51B3] rounded-full overflow-hidden">
-            <div className="h-full bg-[#FFC82C] transition-all w-1/2"></div>
+            <div
+              style={{ width: `${raisedData.percents}%` }}
+              className="h-full bg-[#FFC82C] transition-all"
+            ></div>
           </div>
           <div className="flex self-start gap-2">
             <div className="flex items-center gap-2 md:text-[24px] text-[18px] font-medium leading-4">
               <div className="md:w-[14px] md:h-[14px] w-[10px] h-[10px] bg-[#FFC82C] rounded-full"></div>
               <p className="opacity-90">{t("collected")}</p>
-              <p className="opacity-50">320 900</p>
+              <p className="opacity-50">{raisedData.raised}</p>
             </div>
             <div className="flex items-center gap-2 md:text-[24px] text-[18px] font-medium leading-4">
               <div className="md:w-[14px] md:h-[14px] w-[10px] h-[10px] bg-[#fff] opacity-20 rounded-full"></div>
               <p className="opacity-90">{t("left")}</p>
-              <p className="opacity-50">800 000</p>
+              <p className="opacity-50">{raisedData.left}</p>
             </div>
           </div>
         </div>
@@ -92,6 +174,9 @@ const Presale: React.FC<IProps> = ({ t }) => {
                     type="text"
                     id="fromInput"
                     className="border-none focus:outline-none flex-grow bg-transparent py-5 md:text-[#D89C01] text-[#3C3EAB]"
+                    ref={usdtRef}
+                    value={inputsValues.usdt}
+                    onChange={() => handleChange("usdt")}
                   />
                 </div>
               </div>
@@ -110,6 +195,9 @@ const Presale: React.FC<IProps> = ({ t }) => {
                     type="text"
                     id="toInput"
                     className="border-none focus:outline-none flex-grow bg-transparent py-5 md:text-[#D89C01] text-[#3C3EAB]"
+                    ref={talpaRef}
+                    value={inputsValues.talpa}
+                    onChange={() => handleChange("talpa")}
                   />
                 </div>
               </div>
@@ -118,7 +206,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
               <p className="leading-[22px] font-medium text-[#3C3EAB] md:text-[#FFF] md:text-[20px] text-[16px]">
                 {t("min_purchases")}
               </p>
-              <button className="bg-[#FFB800] rounded-[18px]">
+              <button onClick={invest} className="bg-[#FFB800] rounded-[18px]">
                 <p className="py-5 px-[10px] font-black">{t("confirm")}</p>
               </button>
 

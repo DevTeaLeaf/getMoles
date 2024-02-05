@@ -35,6 +35,8 @@ import type { TFAQ } from "../types";
 
 const STAGES = ["06.03.2024", "20.03.2024", "03.04.2024"];
 
+const TOTAL_SCOPE = "800000";
+
 const ROADMAP = [
   {
     year: 2023,
@@ -395,4 +397,5 @@ export {
   TOKENOMICS_SLICES,
   SOCIAL_NETWORKS,
   FADE_IN_LEFT_VARIANTS,
+  TOTAL_SCOPE,
 };
