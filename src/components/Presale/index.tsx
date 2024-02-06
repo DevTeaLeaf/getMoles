@@ -140,16 +140,6 @@ const Presale: React.FC<IProps> = ({ t }) => {
     setInputsValues({ talpa: formatedTalpa, usdt: formatedUsdt });
     checkAllowance();
   };
-  const start = async () => {
-    const start = await writeContract({
-      address: TOKEN_SALE,
-      abi: TokenSaleABI,
-      functionName: "openSell",
-      args: [0, true],
-    });
-
-    console.log(start);
-  };
   const initData = async () => {
     try {
       let USDTRaised = await readContract(publicClient, {
@@ -346,11 +336,6 @@ const Presale: React.FC<IProps> = ({ t }) => {
                   </p>
                 </button>
               )}
-
-              <button onClick={start} className="bg-[#FFB800] rounded-[18px]">
-                <p className="py-5 px-[10px] font-black">Start</p>
-              </button>
-
               <img
                 src={hammer}
                 alt="hammer"
