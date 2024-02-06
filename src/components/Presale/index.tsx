@@ -285,7 +285,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
                 </h1>
                 <div className="border md:border-[#E9A801] border-[#3C3EAB] px-[15px] flex items-center rounded-xl text-[20px] font-black max-w-[320px] md:max-w-full">
                   <label
-                    htmlFor="tonput"
+                    htmlFor="toInput"
                     className="mr-5 md:text-[#D89C01] text-[#3C3EAB] py-5"
                   >
                     TALPA
