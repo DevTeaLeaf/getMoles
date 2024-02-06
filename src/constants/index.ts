@@ -33,9 +33,9 @@ import {
 
 import type { TFAQ } from "../types";
 
-const STAGES = ["06.03.2024", "20.03.2024", "03.04.2024"];
+const STAGES = ["07.04.2024", "07.05.2024", "07.06.2024"];
 
-const TOTAL_SCOPE = "800000";
+const TOTAL_SCOPE = "5000000";
 
 const ROADMAP = [
   {
