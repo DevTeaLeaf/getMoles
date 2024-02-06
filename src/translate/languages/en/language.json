@@ -103,5 +103,6 @@
   "team_description_4": "Frontend / Blockchain dev",
   "team_description_5": "Graphic Design Department",
   "team_description_6": "Smart contract development",
-  "approve_usdt": "Approve USDT"
+  "approve_usdt": "Approve USDT",
+  "stage": "stage"
 }

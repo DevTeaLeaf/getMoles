@@ -103,5 +103,6 @@
   "team_description_4": "Desarrollador frontend/blockchain",
   "team_description_5": "Departamento de Diseño Gráfico",
   "team_description_6": "Desarrollo de contratos inteligentes",
-  "approve_usdt": "Aprobar USDT"
+  "approve_usdt": "Aprobar USDT",
+  "stage": "escenario"
 }

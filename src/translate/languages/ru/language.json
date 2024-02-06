@@ -103,5 +103,6 @@
   "team_description_4": "Фронтенд / блокчейн-разработчик",
   "team_description_5": "Отдел графического дизайна",
   "team_description_6": "Разработка смарт-контрактов",
-  "approve_usdt": "Утвердить USDT"
+  "approve_usdt": "Утвердить USDT",
+  "stage": "этап"
 }
