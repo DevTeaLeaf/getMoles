@@ -43,7 +43,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
     percents: 0,
   });
   const [price, setPrice] = useState(0);
-  const [stage, setStage] = useState("1");
+  const [stage, setStage] = useState(0);
   const [minAmountToBuy, setMinAmountToBuy] = useState(0);
   const [allowance, setAllowance] = useState<any>(0);
   const [txHash, setTxHash] = useState("");
@@ -171,7 +171,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
       const percents = (Number(USDTRaised) / scope) * 100;
 
       const left = scope - Number(USDTRaised);
-      setStage(String(Number(currentStage) + 1));
+      setStage(Number(currentStage) + 1);
       setMinAmountToBuy(Number(formatUnits(minAmount, 6)));
       setPrice(Number(formatUnits(stageInfo?.price, 6)));
       setRaisedData({
@@ -227,7 +227,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
                 {t("usdt_raised")}
               </p>
               <sup className="text-[#FFB800] text-[12px] font-bold">
-                1 {t("stage")}
+                {stage} {t("stage")}
               </sup>
             </div>
 
