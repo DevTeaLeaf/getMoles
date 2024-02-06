@@ -32,7 +32,7 @@
   "left": "Izquierdo",
   "you_give": "DAS",
   "you_getting": "TE ESTÁS PONIENDO",
-  "min_purchases": "Se pueden realizar compras por un importe mínimo de 10 usd",
+  "min_purchases": "Se pueden realizar compras por un importe mínimo de",
   "confirm": "Confirmar",
   "referral_earnings": "Ganancias por referencias",
   "referral_h3_1": "de la inversión del amigo recomendado en USDT",
@@ -102,5 +102,6 @@
   "team_description_3": "Líder de Contenido/Operaciones",
   "team_description_4": "Desarrollador frontend/blockchain",
   "team_description_5": "Departamento de Diseño Gráfico",
-  "team_description_6": "Desarrollo de contratos inteligentes"
+  "team_description_6": "Desarrollo de contratos inteligentes",
+  "approve_usdt": "Aprobar USDT"
 }

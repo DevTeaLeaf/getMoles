@@ -32,7 +32,7 @@
   "left": "左边",
   "you_give": "你给",
   "you_getting": "你会得到",
-  "min_purchases": "购买金额至少为 10 美元",
+  "min_purchases": "购买金额至少为",
   "confirm": "确认",
   "referral_earnings": "推荐收入",
   "referral_h3_1": "被推荐朋友的 USDT 投资额",
@@ -102,5 +102,6 @@
   "team_description_3": "内容/运营主管",
   "team_description_4": "前端/区块链开发",
   "team_description_5": "平面设计系",
-  "team_description_6": "智能合约开发"
+  "team_description_6": "智能合约开发",
+  "approve_usdt": "批准USDT"
 }

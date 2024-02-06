@@ -32,7 +32,7 @@
   "left": "Gauche",
   "you_give": "NOUS VOULONS",
   "you_getting": "VOUS OBTENEZ",
-  "min_purchases": "Les achats sont possibles pour un montant d'au moins 10 usd",
+  "min_purchases": "Les achats sont possibles pour un montant d'au moins",
   "confirm": "Confirmer",
   "referral_earnings": "Gains de parrainage",
   "referral_h3_1": "de l’investissement de l’ami parrainé dans USDT",
@@ -102,5 +102,6 @@
   "team_description_3": "Responsable du contenu / des opérations",
   "team_description_4": "Développeur Frontend / Blockchain",
   "team_description_5": "Département de conception graphique",
-  "team_description_6": "Développement de contrats intelligents"
+  "team_description_6": "Développement de contrats intelligents",
+  "approve_usdt": "Approuver l'USDT"
 }

@@ -2,9 +2,11 @@ import { useState, useEffect, useRef } from "react";
 
 import { withTranslation } from "react-i18next";
 
-import { usePublicClient } from "wagmi";
-import { formatUnits } from "viem"; //parseUnits
+import { usePublicClient, useAccount } from "wagmi";
+import { formatUnits, parseUnits, maxUint256 } from "viem";
 import { readContract } from "viem/actions";
+import { writeContract } from "@wagmi/core";
+import { useWeb3Modal } from "@web3modal/wagmi/react";
 
 import { motion } from "framer-motion";
 
@@ -14,7 +16,7 @@ import Timer from "./Timer";
 
 import { hammer, mole9 } from "../../assets";
 
-import { TOKEN_SALE, TokenSaleABI } from "../../web3";
+import { TOKEN_SALE, TokenABI, TokenSaleABI, USDT } from "../../web3";
 
 import { formatNumber } from "../../utils";
 
@@ -27,6 +29,10 @@ interface IProps {
 const Presale: React.FC<IProps> = ({ t }) => {
   const publicClient = usePublicClient();
 
+  const { address, isConnected } = useAccount();
+
+  const { open } = useWeb3Modal();
+
   const talpaRef = useRef<HTMLInputElement>(null);
   const usdtRef = useRef<HTMLInputElement>(null);
 
@@ -36,68 +42,155 @@ const Presale: React.FC<IProps> = ({ t }) => {
     left: "0",
     percents: 0,
   });
+  const [price, setPrice] = useState(0);
+  const [minAmountToBuy, setMinAmountToBuy] = useState(0);
+  const [allowance, setAllowance] = useState<any>(0);
+  const [txHash, setTxHash] = useState("");
+
+  const checkAllowance = async () => {
+    const allowance = await readContract(publicClient, {
+      address: USDT,
+      abi: TokenABI,
+      functionName: "allowance",
+      args: [address, TOKEN_SALE],
+    });
+    setAllowance(formatUnits(allowance as bigint, 6));
+  };
+
+  const approve = async () => {
+    try {
+      const approveToken = await writeContract({
+        address: USDT,
+        abi: TokenABI,
+        functionName: "approve",
+        args: [TOKEN_SALE, maxUint256],
+      });
+
+      const transaction = await publicClient.waitForTransactionReceipt({
+        confirmations: 5,
+        hash: approveToken?.hash,
+      });
+      checkAllowance();
+      console.log(transaction);
+    } catch (error) {
+      checkAllowance();
+      console.log("APPROVE ERROR:", error);
+    }
+  };
 
   const invest = async () => {
+    if (Number(usdtRef?.current?.value) < minAmountToBuy) {
+      alert(t("min_purchases"));
+      return;
+    }
     const currentUrl = new URL(window.location.href);
-    const refValue = currentUrl.searchParams.get("ref");
+    const refValue =
+      currentUrl.searchParams.get("ref") ||
+      "0x0000000000000000000000000000000000000000";
 
-    if (refValue) {
-      console.log('Value of "ref":', refValue);
-    } else {
-      console.log('Parameter "ref" not found or has no value.');
+    try {
+      const buyToken = await writeContract({
+        address: TOKEN_SALE,
+        abi: TokenSaleABI,
+        functionName: "buyToken",
+        args: [parseUnits(usdtRef?.current?.value as string, 18), refValue],
+      });
+      const transaction = await publicClient.waitForTransactionReceipt({
+        confirmations: 5,
+        hash: buyToken?.hash,
+      });
+      setTxHash(transaction?.transactionHash);
+    } catch (error) {
+      console.log("INVEST ERROR:", error);
     }
   };
 
   const handleChange = async (ref: string) => {
-    let inputValue: any = "";
+    let usdtValue: any = "";
+    let talpaValue: any = "";
 
     if (ref === "usdt") {
-      inputValue = usdtRef?.current?.value;
-
-      //  const howMuchFromUSDT = await readContract(publicClient, {
-      //     address: TOKEN_SALE,
-      //     abi: TokenSaleABI,
-      //     functionName: "howMuchFromUSDT",
-      //     args: [parseUnits(inputValue, 6)],
-      //   });
+      usdtValue = usdtRef?.current?.value;
+      if (usdtValue) {
+        const howMuchFromUSDT = await readContract(publicClient, {
+          address: TOKEN_SALE,
+          abi: TokenSaleABI,
+          functionName: "howMuchFromUSDT",
+          args: [parseUnits(usdtValue, 6)],
+        });
+        talpaValue = String(howMuchFromUSDT);
+      }
     }
 
     if (ref === "talpa") {
-      inputValue = talpaRef?.current?.value;
+      talpaValue = talpaRef?.current?.value;
+      if (talpaValue) {
+        const howMuchFromTALPA = await readContract(publicClient, {
+          address: TOKEN_SALE,
+          abi: TokenSaleABI,
+          functionName: "howMuch",
+          args: [parseUnits(talpaValue, 18)],
+        });
+        usdtValue = formatUnits(howMuchFromTALPA as bigint, 6);
+      }
     }
 
-    const formatedValue = inputValue.replace(/[^0-9\.]+/g, "");
-
-    setInputsValues((prev) => ({ ...prev, [ref]: formatedValue }));
+    const formatedTalpa = talpaValue.replace(/[^0-9\.]+/g, "");
+    const formatedUsdt = usdtValue.replace(/[^0-9\.]+/g, "");
+    setInputsValues({ talpa: formatedTalpa, usdt: formatedUsdt });
+    checkAllowance();
   };
 
   const initData = async () => {
-    let USDTRaised = await readContract(publicClient, {
-      address: TOKEN_SALE,
-      abi: TokenSaleABI,
-      functionName: "USDTCollectedTotal",
-    });
-    USDTRaised = formatUnits(USDTRaised as bigint, 18);
+    try {
+      let USDTRaised = await readContract(publicClient, {
+        address: TOKEN_SALE,
+        abi: TokenSaleABI,
+        functionName: "USDTCollectedTotal",
+      });
+      const currentStage = await readContract(publicClient, {
+        address: TOKEN_SALE,
+        abi: TokenSaleABI,
+        functionName: "currentStage",
+      });
+      const stageInfo: any = await readContract(publicClient, {
+        address: TOKEN_SALE,
+        abi: TokenSaleABI,
+        functionName: "getStageInfo",
+        args: [currentStage],
+      });
+      const minAmount: any = await readContract(publicClient, {
+        address: TOKEN_SALE,
+        abi: TokenSaleABI,
+        functionName: "minAmountToBuy",
+      });
 
-    const scope = Number(TOTAL_SCOPE);
-    const percents = (Number(USDTRaised) / scope) * 100;
+      USDTRaised = formatUnits(USDTRaised as bigint, 18);
 
-    const left = scope - Number(USDTRaised);
+      const scope = Number(TOTAL_SCOPE);
+      const percents = (Number(USDTRaised) / scope) * 100;
 
-    setRaisedData({
-      raised: formatNumber(USDTRaised as string),
-      left: formatNumber(left),
-      percents: percents,
-    });
+      const left = scope - Number(USDTRaised);
+
+      setMinAmountToBuy(Number(formatUnits(minAmount, 6)));
+      setPrice(Number(formatUnits(stageInfo?.price, 6)));
+      setRaisedData({
+        raised: formatNumber(USDTRaised as string),
+        left: formatNumber(left),
+        percents: percents,
+      });
+    } catch (error) {
+      console.log("INIT ERROR:", error);
+    }
   };
 
   useEffect(() => {
     initData();
-  }, []);
+  }, [txHash]);
   return (
     <div
       id="presale"
-      className="flex items-center md:items-stretch justify-evenly min-[1600px]:gap-[50px] gap-5 min-[1440px]:px-0 md:px-5 px-1 xl:flex-row flex-col"
+      className="flex items-center md:items-stretch justify-evenly min-[1600px]:gap-[50px] gap-5 min-[1440px]:px-0 md:px-5 px-1 xl:flex-row flex-col flex-wrap"
     >
       <div className="flex flex-col justify-between">
         <p className="text-[#FFB800] xl:text-[84px] sm:text-[64px] text-[32px] xl:leading-[80px] sm:leading-[60px] leadning-8 font-bold  tracking-[2px] md:text-shadow mobile-text-shadow mb-10">
@@ -109,8 +202,8 @@ const Presale: React.FC<IProps> = ({ t }) => {
         <Timer />
         <div className="flex items-center gap-3 mt-5 min-[1600px]:text-[20px] md:text-[18px] text-[13px]">
           <p className="text-[#9C9AB6]">{t("hurry_buy")}</p>
-          <p className="text-[#D89C01] font-black text-[32px] md:text-auto">
-            1$
+          <p className="text-[#D89C01] font-black text-[24px] md:text-auto">
+            {price}$
           </p>
         </div>
         <motion.div
@@ -204,11 +297,46 @@ const Presale: React.FC<IProps> = ({ t }) => {
             </div>
             <div className="mt-5 flex flex-col gap-10 max-w-[315px] text-[20px] relative">
               <p className="leading-[22px] font-medium text-[#3C3EAB] md:text-[#FFF] md:text-[20px] text-[16px]">
-                {t("min_purchases")}
+                {t("min_purchases")} {minAmountToBuy} USD
               </p>
-              <button onClick={invest} className="bg-[#FFB800] rounded-[18px]">
-                <p className="py-5 px-[10px] font-black">{t("confirm")}</p>
-              </button>
+              {isConnected ? (
+                <>
+                  {Number(inputsValues.usdt) > 0 ? (
+                    <div>
+                      {allowance >= Number(inputsValues.usdt) ? (
+                        <button
+                          onClick={invest}
+                          className="bg-[#FFB800] rounded-[18px] w-full"
+                        >
+                          <p className="py-5 px-[10px] font-black">
+                            {t("confirm")}
+                          </p>
+                        </button>
+                      ) : (
+                        <button
+                          onClick={approve}
+                          className="bg-[#FFB800] rounded-[18px] w-full"
+                        >
+                          <p className="py-5 px-[10px] font-black">
+                            {t("approve_usdt")}
+                          </p>
+                        </button>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="h-[70px]"></div>
+                  )}
+                </>
+              ) : (
+                <button
+                  onClick={() => open()}
+                  className="bg-[#FFB800] rounded-[18px]"
+                >
+                  <p className="py-5 px-[10px] font-black">
+                    {t("connect_wallet")}
+                  </p>
+                </button>
+              )}
 
               <img
                 src={hammer}

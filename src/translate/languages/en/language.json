@@ -32,7 +32,7 @@
   "left": "Left",
   "you_give": "YOU GIVE",
   "you_getting": "YOU ARE GETTING",
-  "min_purchases": "Purchases are possible for an amount of at least 10 usd",
+  "min_purchases": "Purchases are possible for an amount of at least",
   "confirm": "Confirm",
   "referral_earnings": "Referral earnings",
   "referral_h3_1": "of the referred friend’s investment in USDT",
@@ -102,5 +102,6 @@
   "team_description_3": "Content / Operations Lead",
   "team_description_4": "Frontend / Blockchain dev",
   "team_description_5": "Graphic Design Department",
-  "team_description_6": "Smart contract development"
+  "team_description_6": "Smart contract development",
+  "approve_usdt": "Approve USDT"
 }
