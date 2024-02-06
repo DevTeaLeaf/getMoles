@@ -165,7 +165,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
         functionName: "minAmountToBuy",
       });
 
-      USDTRaised = formatUnits(USDTRaised as bigint, 18);
+      USDTRaised = formatUnits(USDTRaised as bigint, 6);
 
       const scope = Number(TOTAL_SCOPE);
       const percents = (Number(USDTRaised) / scope) * 100;
