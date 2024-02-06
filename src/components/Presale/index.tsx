@@ -94,7 +94,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
         address: TOKEN_SALE,
         abi: TokenSaleABI,
         functionName: "buyToken",
-        args: [parseUnits(usdtRef?.current?.value as string, 18), refValue],
+        args: [parseUnits(usdtRef?.current?.value as string, 6), refValue],
       });
       const transaction = await publicClient.waitForTransactionReceipt({
         confirmations: 5,
