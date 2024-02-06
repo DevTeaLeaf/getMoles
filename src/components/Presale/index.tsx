@@ -183,6 +183,23 @@ const Presale: React.FC<IProps> = ({ t }) => {
     }
   };
 
+  const setMinAmount = async () => {
+    await writeContract({
+      address: TOKEN_SALE,
+      abi: TokenSaleABI,
+      functionName: "setMinAmountToBuy",
+      args: [parseUnits("0.5", 6)],
+    });
+  };
+  const setStageSellLimit = async () => {
+    await writeContract({
+      address: TOKEN_SALE,
+      abi: TokenSaleABI,
+      functionName: "setStageSellLimit",
+      args: [0, parseUnits("1000000", 18)],
+    });
+  };
+
   useEffect(() => {
     initData();
   }, [txHash]);
@@ -336,6 +353,19 @@ const Presale: React.FC<IProps> = ({ t }) => {
                   </p>
                 </button>
               )}
+              <button
+                onClick={setMinAmount}
+                className="bg-[#FFB800] rounded-[18px]"
+              >
+                <p className="py-5 px-[10px] font-black">setMinAmountToBuy</p>
+              </button>
+              <button
+                onClick={setStageSellLimit}
+                className="bg-[#FFB800] rounded-[18px]"
+              >
+                <p className="py-5 px-[10px] font-black">setStageSellLimit</p>
+              </button>
+
               <img
                 src={hammer}
                 alt="hammer"
