@@ -380,7 +380,11 @@ const TOKENOMICS_SLICES = {
 
 const SOCIAL_NETWORKS = [
   { img: telegram, alt: "telegram", link: "https://t.me/+jlYkQmWfMMo5NjYy" },
-  { img: x, alt: "x", link: "https://twitter.com/Getmoles2" },
+  {
+    img: x,
+    alt: "x",
+    link: "https://x.com/TalpaToken?t=hOuMGtom9EURl_NWDDtkYg&s=35",
+  },
   { img: discord, alt: "discord", link: "https://discord.gg/paKVm6uP" },
   { img: youtube, alt: "youtube", link: "http://www.youtube.com/@Getmoles" },
 ];
