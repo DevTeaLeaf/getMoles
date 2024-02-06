@@ -84,10 +84,15 @@ const Presale: React.FC<IProps> = ({ t }) => {
       alert(t("min_purchases"));
       return;
     }
+
     const currentUrl = new URL(window.location.href);
-    const refValue =
+    let refValue =
       currentUrl.searchParams.get("ref") ||
       "0x0000000000000000000000000000000000000000";
+
+    if (refValue === address) {
+      refValue = "0x0000000000000000000000000000000000000000";
+    }
 
     try {
       const buyToken = await writeContract({
@@ -107,38 +112,17 @@ const Presale: React.FC<IProps> = ({ t }) => {
   };
 
   const handleChange = async (ref: string) => {
-    let usdtValue: any = "";
-    let talpaValue: any = "";
+    let usdtValue: any = usdtRef?.current?.value.replace(/[^0-9\.]+/g, "");
+    let talpaValue: any = talpaRef?.current?.value.replace(/[^0-9\.]+/g, "");
 
     if (ref === "usdt") {
-      usdtValue = usdtRef?.current?.value;
-      if (usdtValue) {
-        const howMuchFromUSDT = await readContract(publicClient, {
-          address: TOKEN_SALE,
-          abi: TokenSaleABI,
-          functionName: "howMuchFromUSDT",
-          args: [parseUnits(usdtValue, 6)],
-        });
-        talpaValue = String(howMuchFromUSDT);
-      }
+      talpaValue = usdtValue / price;
     }
 
     if (ref === "talpa") {
-      talpaValue = talpaRef?.current?.value;
-      if (talpaValue) {
-        const howMuchFromTALPA = await readContract(publicClient, {
-          address: TOKEN_SALE,
-          abi: TokenSaleABI,
-          functionName: "howMuch",
-          args: [parseUnits(talpaValue, 18)],
-        });
-        usdtValue = formatUnits(howMuchFromTALPA as bigint, 6);
-      }
+      usdtValue = talpaValue * price;
     }
-
-    const formatedTalpa = talpaValue.replace(/[^0-9\.]+/g, "");
-    const formatedUsdt = usdtValue.replace(/[^0-9\.]+/g, "");
-    setInputsValues({ talpa: formatedTalpa, usdt: formatedUsdt });
+    setInputsValues({ talpa: talpaValue, usdt: usdtValue });
     checkAllowance();
   };
   const initData = async () => {
