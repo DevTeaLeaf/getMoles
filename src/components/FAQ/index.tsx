@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 import { TFunction } from "i18next";
 
-import { HOME_FAQ, FADE_IN_BOTTOM_VARIANTS } from "../../constants";
+import { HOME_FAQ, FADE_IN_BOTTOM_VARIANTS } from "#constants";
 
 interface IProps {
   t: TFunction;

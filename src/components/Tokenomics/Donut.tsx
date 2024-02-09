@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import type { TTokenomicsSliceAnimation } from "../../types";
+import type { TTokenomicsSliceAnimation } from "#types";
 
 interface IProps {
   setAnimations: React.Dispatch<React.SetStateAction<any>>;

@@ -17,11 +17,11 @@ import {
   Ticker,
   ReferralEarnings,
   Presale,
-} from "./components";
+} from "#components";
 
-import { FADE_IN_BOTTOM_VARIANTS, SOCIAL_NETWORKS } from "./constants";
+import { h1_logo, moles, rocket, group, target, mole21, mole6 } from "#assets";
 
-import { h1_logo, moles, rocket, group, target, mole21, mole6 } from "./assets";
+import { FADE_IN_BOTTOM_VARIANTS, SOCIAL_NETWORKS } from "#constants";
 
 interface IProps {
   t: TFunction;

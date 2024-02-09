@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 import { TFunction } from "i18next";
 
-import { referralBg } from "../../assets";
+import { referralBg } from "#assets";
 
 interface IProps {
   t: TFunction;

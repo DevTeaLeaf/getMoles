@@ -8,8 +8,8 @@ import { TFunction } from "i18next";
 
 import LanguagesModal from "../LanguagesModal";
 
-import { buy_img, dropdown_arrow, logo, wallet_img } from "../../assets";
-import i18n from "../../translate/i18n";
+import { buy_img, dropdown_arrow, logo, wallet_img } from "#assets";
+import i18n from "#translate/i18n";
 
 interface IProps {
   t: TFunction;

@@ -2,9 +2,9 @@ import { withTranslation } from "react-i18next";
 
 import { TFunction } from "i18next";
 
-import { logo } from "../../assets";
+import { logo } from "#assets";
 
-import { SOCIAL_NETWORKS } from "../../constants";
+import { SOCIAL_NETWORKS } from "#constants";
 
 interface IProps {
   t: TFunction;

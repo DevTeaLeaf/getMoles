@@ -4,7 +4,7 @@ import { withTranslation } from "react-i18next";
 
 import { TFunction } from "i18next";
 
-import { STAGES } from "../../constants";
+import { STAGES } from "#constants";
 
 interface IProps {
   t: TFunction;

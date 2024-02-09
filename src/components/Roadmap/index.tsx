@@ -5,11 +5,11 @@ import { TFunction } from "i18next";
 
 import { Scrollbars } from "react-custom-scrollbars-2";
 
-import { useScroll } from "../../utils";
+import { doImg, done, progress } from "#assets";
 
-import { doImg, done, progress } from "../../assets";
+import { useScroll } from "#utils";
 
-import { ROADMAP } from "../../constants";
+import { ROADMAP } from "#constants";
 
 interface IProps {
   t: TFunction;

@@ -14,13 +14,13 @@ import { TFunction } from "i18next";
 
 import Timer from "./Timer";
 
-import { hammer, mole9 } from "../../assets";
+import { hammer, mole9 } from "#assets";
 
-import { TOKEN_SALE, TokenABI, TokenSaleABI, USDT } from "../../web3";
+import { TOKEN_SALE, TokenABI, TokenSaleABI, USDT } from "#web3";
 
-import { formatNumber } from "../../utils";
+import { formatNumber } from "#utils";
 
-import { FADE_IN_LEFT_VARIANTS, TOTAL_SCOPE } from "../../constants";
+import { FADE_IN_LEFT_VARIANTS, TOTAL_SCOPE } from "#constants";
 
 interface IProps {
   t: TFunction;

@@ -9,9 +9,9 @@ import { motion } from "framer-motion";
 import { Donut } from "./Donut";
 import { MobileDonut } from "./MobileDonut";
 
-import { TOKENOMICS, TOKENOMICS_SLICES } from "../../constants";
+import { TOKENOMICS, TOKENOMICS_SLICES } from "#constants";
 
-import type { TTokenomicsSliceAnimation } from "../../types";
+import type { TTokenomicsSliceAnimation } from "#types";
 
 interface IProps {
   t: TFunction;

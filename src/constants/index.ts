@@ -29,9 +29,9 @@ import {
   x,
   discord,
   youtube,
-} from "../assets";
+} from "#assets";
 
-import type { TFAQ } from "../types";
+import type { TFAQ } from "#types";
 
 const STAGES = ["07.04.2024", "07.05.2024", "07.06.2024"];
 
