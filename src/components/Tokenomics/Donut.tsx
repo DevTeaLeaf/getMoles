@@ -9,7 +9,7 @@ interface IProps {
 const Donut: React.FC<IProps> = ({ setAnimations }) => {
   const hoverVariants = {
     hover: {
-      scale: 0.8,
+      scale: 0.9,
       transition: { duration: 0.5, ease: "easeOut" },
     },
     unhover: {

@@ -71,7 +71,7 @@ const ReferralEarnings: React.FC<IProps> = ({ t }) => {
       {isConnected ? (
         <button
           onClick={copyRefLink}
-          className="md:bg-[#FFB800] bg-[#FFF] rounded-[18px] min-w-[300px]"
+          className="md:bg-[#FFB800] bg-[#FFF] rounded-[18px] min-w-[300px] transition-transform duration-300 transform hover:scale-105"
         >
           <p className="py-5 px-[10px] font-black md:text-[#FFF] text-[#FFB800]">
             {t("copy_ref_link")}
@@ -80,7 +80,7 @@ const ReferralEarnings: React.FC<IProps> = ({ t }) => {
       ) : (
         <button
           onClick={() => open()}
-          className="md:bg-[#FFB800] bg-[#FFF] rounded-[18px] min-w-[300px]"
+          className="md:bg-[#FFB800] bg-[#FFF] rounded-[18px] min-w-[300px] transition-transform duration-300 transform hover:scale-105"
         >
           <p className="py-5 px-[10px] font-black md:text-[#FFF] text-[#FFB800]">
             {t("connect_wallet")}

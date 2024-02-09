@@ -87,7 +87,7 @@ const Header: React.FC<IProps> = ({ t }) => {
             <div className="flex items-center gap-5 poppins text-[15px]">
               <a
                 href="#presale"
-                className="bg-[#D7AA41] rounded-3xl min-[1680px]:block hidden"
+                className="bg-[#D7AA41] rounded-3xl min-[1680px]:block hidden transition-transform duration-300 transform hover:scale-105"
               >
                 <div className="py-3 pl-4 pr-6 flex items-center gap-2">
                   <img src={buy_img} alt="buy" />
@@ -95,7 +95,7 @@ const Header: React.FC<IProps> = ({ t }) => {
                 </div>
               </a>
               <button
-                className="rounded-3xl bg-transparent border min-[430px]:block hidden"
+                className="rounded-3xl bg-transparent border min-[430px]:block hidden transition-transform duration-300 transform hover:scale-105"
                 onClick={() => open()}
               >
                 <div className="py-[6px] pl-2 pr-3 md:py-3 md:pl-4 md:pr-6 flex items-center gap-1 md:gap-2">

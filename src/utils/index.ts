@@ -1,3 +1,4 @@
 import formatNumber from "./formatNumber";
+import useScroll from "./useScroll";
 
-export { formatNumber };
+export { formatNumber, useScroll };

@@ -287,7 +287,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
             </div>
             <div className="mt-5 flex flex-col gap-10 max-w-[315px] text-[20px] relative">
               <p className="leading-[22px] font-medium text-[#3C3EAB] md:text-[#FFF] md:text-[20px] text-[16px]">
-                {t("min_purchases")} {minAmountToBuy} USD
+                {t("min_purchases")} {minAmountToBuy} USDT
               </p>
               {isConnected ? (
                 <>
@@ -296,7 +296,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
                       {allowance >= Number(inputsValues.usdt) ? (
                         <button
                           onClick={invest}
-                          className="bg-[#FFB800] rounded-[18px] w-full"
+                          className="bg-[#FFB800] rounded-[18px] w-full transition-transform duration-300 transform hover:scale-105"
                         >
                           <p className="py-5 px-[10px] font-black">
                             {t("confirm")}
@@ -305,7 +305,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
                       ) : (
                         <button
                           onClick={approve}
-                          className="bg-[#FFB800] rounded-[18px] w-full"
+                          className="bg-[#FFB800] rounded-[18px] w-full transition-transform duration-300 transform hover:scale-105"
                         >
                           <p className="py-5 px-[10px] font-black">
                             {t("approve_usdt")}
@@ -320,7 +320,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
               ) : (
                 <button
                   onClick={() => open()}
-                  className="bg-[#FFB800] rounded-[18px]"
+                  className="bg-[#FFB800] rounded-[18px] transition-transform duration-300 transform hover:scale-105"
                 >
                   <p className="py-5 px-[10px] font-black">
                     {t("connect_wallet")}

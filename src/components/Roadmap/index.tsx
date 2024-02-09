@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { withTranslation } from "react-i18next";
 import { TFunction } from "i18next";
 
 import { Scrollbars } from "react-custom-scrollbars-2";
+
+import { useScroll } from "../../utils";
 
 import { doImg, done, progress } from "../../assets";
 
@@ -22,6 +24,12 @@ const Roadmap: React.FC<IProps> = ({ t }) => {
     setActiveRoadmap(newRoadmap[0]);
     setActiveYear(year);
   };
+
+  useEffect(() => {
+    const doms = Array.from(document.querySelectorAll(".draggable"));
+    const drags = doms.map((dom) => useScroll(dom));
+    return () => drags.forEach((item) => item.destroy());
+  }, []);
   return (
     <div className="md:px-5 px-2 max-w-[1920px] mx-auto text-[#fff]">
       <div
@@ -50,7 +58,7 @@ const Roadmap: React.FC<IProps> = ({ t }) => {
       </div>
       <Scrollbars
         renderView={() => (
-          <div className="flex items-center justify-between overflow-x-hidden whitespace-nowrap max-w-[1440px] mx-auto gap-[8rem] md:gap-[15rem]" />
+          <div className="flex items-center justify-between overflow-x-hidden whitespace-nowrap max-w-[1440px] mx-auto gap-[8rem] md:gap-[15rem] draggable" />
         )}
         renderTrackHorizontal={() => (
           <div className="roadmapTrack max-w-[1440px] mx-auto" />

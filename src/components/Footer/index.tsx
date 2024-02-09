@@ -29,7 +29,12 @@ const Footer: React.FC<IProps> = ({ t }) => {
       </p>
       <div className="flex items-center gap-5">
         {SOCIAL_NETWORKS.map((social) => (
-          <a key={social.link} href={social.link} target="_blank">
+          <a
+            key={social.link}
+            href={social.link}
+            target="_blank"
+            className="transition-transform duration-300 transform hover:scale-150"
+          >
             <img src={social.img} alt={social.alt} className="cursor-pointer" />
           </a>
         ))}

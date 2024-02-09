@@ -52,7 +52,7 @@ const Home: React.FC<IProps> = ({ t }) => {
                   {!address && (
                     <button
                       onClick={() => open()}
-                      className="bg-[#FFB800] rounded-3xl w-[315px]"
+                      className="bg-[#FFB800] rounded-3xl w-[315px] transition-transform duration-300 transform hover:scale-105"
                     >
                       <p className="montserrat text-[20px] font-black py-5">
                         {t("connect_wallet")}
@@ -61,7 +61,7 @@ const Home: React.FC<IProps> = ({ t }) => {
                   )}
                   <a
                     href="#presale"
-                    className="rounded-3xl bg-transparent border border-[#FFB800] w-[315px]"
+                    className="rounded-3xl bg-transparent border border-[#FFB800] w-[315px] transition-transform duration-300 transform hover:scale-105"
                   >
                     <p className="montserrat text-center text-[20px] font-black py-5">
                       {t("buy_token")}
@@ -171,7 +171,7 @@ const Home: React.FC<IProps> = ({ t }) => {
                           alt="target"
                           className="sm:max-w-[83px] sm:max-h-[83px] max-w-[60px] max-h-[60px] items-end"
                         />
-                        <button className="bg-[#fff] rounded-[18px] button-shadow">
+                        <button className="bg-[#fff] rounded-[18px] button-shadow transition-transform duration-300 transform hover:scale-105">
                           <p className="text-[#FFB800] py-5 sm:px-7 px-5">
                             {t("read_whitepaper")}
                           </p>
@@ -187,7 +187,7 @@ const Home: React.FC<IProps> = ({ t }) => {
                       <img
                         src={social.img}
                         alt={social.alt}
-                        className="sm:w-[102px] sm:h-[102px] w-[51px] h-[51px]"
+                        className="sm:w-[102px] sm:h-[102px] w-[51px] h-[51px] transition-transform duration-300 transform hover:scale-105"
                       />
                     </a>
                   ))}
@@ -206,7 +206,7 @@ const Home: React.FC<IProps> = ({ t }) => {
               </h1>
               <a
                 href="#presale"
-                className="rounded-3xl bg-transparent border border-[#FFB800] md:w-[315px] w-[210px]"
+                className="rounded-3xl bg-transparent border border-[#FFB800] md:w-[315px] w-[210px] transition-transform duration-300 transform hover:scale-105"
               >
                 <p className="montserrat text-[20px] font-black py-5 text-center">
                   {t("be_ready_button")}
