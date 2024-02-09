@@ -29,11 +29,34 @@ const useScroll = (container: any) => {
     container.removeEventListener("touchmove", touchMoveHandler);
   };
 
+  const mouseDownHandler = (e: MouseEvent) => {
+    startX = e.clientX;
+    startY = e.clientY;
+    startLeft = container.scrollLeft;
+    startTop = container.scrollTop;
+
+    document.addEventListener("mousemove", mouseMoveHandler);
+    document.addEventListener("mouseup", mouseUpHandler, { once: true });
+  };
+
+  const mouseMoveHandler = (e: MouseEvent) => {
+    const dx = startX - e.clientX;
+    const dy = startY - e.clientY;
+    container.scrollLeft = startLeft + dx;
+    container.scrollTop = startTop + dy;
+  };
+
+  const mouseUpHandler = () => {
+    document.removeEventListener("mousemove", mouseMoveHandler);
+  };
+
   container.addEventListener("touchstart", touchStartHandler);
+  container.addEventListener("mousedown", mouseDownHandler);
 
   return {
     destroy: () => {
       container.removeEventListener("touchstart", touchStartHandler);
+      container.removeEventListener("mousedown", mouseDownHandler);
     },
   };
 };

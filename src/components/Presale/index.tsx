@@ -256,7 +256,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
                   <input
                     type="text"
                     id="fromInput"
-                    className="border-none focus:outline-none flex-grow bg-transparent py-5 md:text-[#D89C01] text-[#3C3EAB]"
+                    className="border-none focus:outline-none flex-grow bg-transparent py-5 md:text-[#D89C01] text-[#3C3EAB] w-full"
                     ref={usdtRef}
                     value={inputsValues.usdt}
                     onChange={() => handleChange("usdt")}
@@ -277,7 +277,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
                   <input
                     type="text"
                     id="toInput"
-                    className="border-none focus:outline-none flex-grow bg-transparent py-5 md:text-[#D89C01] text-[#3C3EAB]"
+                    className="border-none focus:outline-none flex-grow bg-transparent py-5 md:text-[#D89C01] text-[#3C3EAB] w-full"
                     ref={talpaRef}
                     value={inputsValues.talpa}
                     onChange={() => handleChange("talpa")}
