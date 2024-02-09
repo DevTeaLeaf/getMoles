@@ -1,4 +1,4 @@
-const useScroll = (container: HTMLElement) => {
+const useScroll = (container: any) => {
   let startX = 0;
   let startY = 0;
   let startLeft = 0;
