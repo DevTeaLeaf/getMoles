@@ -1,37 +1,39 @@
-const useScroll = (container: any) => {
-  let top = 0;
-  let left = 0;
-  let x = 0;
-  let y = 0;
+const useScroll = (container: HTMLElement) => {
+  let startX = 0;
+  let startY = 0;
+  let startLeft = 0;
+  let startTop = 0;
 
-  const mouseDownHandler = (e: MouseEvent) => {
-    left = container.scrollLeft;
-    top = container.scrollTop;
+  const touchStartHandler = (e: TouchEvent) => {
+    if (e.touches.length === 1) {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      startLeft = container.scrollLeft;
+      startTop = container.scrollTop;
 
-    x = e.clientX;
-    y = e.clientY;
-
-    document.addEventListener("mousemove", mouseMoveHandler);
-    document.addEventListener("mouseup", mouseUpHandler, { once: true });
+      container.addEventListener("touchmove", touchMoveHandler);
+      container.addEventListener("touchend", touchEndHandler, { once: true });
+    }
   };
 
-  const mouseUpHandler = () => {
-    document.removeEventListener("mousemove", mouseMoveHandler);
+  const touchMoveHandler = (e: TouchEvent) => {
+    if (e.touches.length === 1) {
+      const dx = startX - e.touches[0].clientX;
+      const dy = startY - e.touches[0].clientY;
+      container.scrollLeft = startLeft + dx;
+      container.scrollTop = startTop + dy;
+    }
   };
 
-  const mouseMoveHandler = (e: MouseEvent) => {
-    const dx = e.clientX - x;
-    const dy = e.clientY - y;
-
-    container.scrollTop = top - dy;
-    container.scrollLeft = left - dx;
+  const touchEndHandler = () => {
+    container.removeEventListener("touchmove", touchMoveHandler);
   };
 
-  container.addEventListener("mousedown", mouseDownHandler);
+  container.addEventListener("touchstart", touchStartHandler);
 
   return {
     destroy: () => {
-      container.removeEventListener("mousedown", mouseDownHandler);
+      container.removeEventListener("touchstart", touchStartHandler);
     },
   };
 };
