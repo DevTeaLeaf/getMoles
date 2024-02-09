@@ -39,11 +39,13 @@ const Header: React.FC<IProps> = ({ t }) => {
     <header className="flex sticky top-0 inter-400 z-50">
       <nav className="sticky w-full text-[#fff] backdrop-blur-md">
         <div className="w-full flex items-center justify-between h-[60px] md:h-[80px] px-2 md:px-5">
-          <img
-            className="w-[110px] md:w-full h-9 max-w-[200px] cursor-pointer xl:mt-[-16px]"
-            src={logo}
-            alt="logo"
-          />
+          <a href="https://getmoles.com/">
+            <img
+              className="w-[110px] md:w-full h-9 max-w-[200px] cursor-pointer xl:mt-[-16px]"
+              src={logo}
+              alt="logo"
+            />
+          </a>
 
           <div className="hidden xl:flex items-center justify-center gap-8 montserrat text-[20px] 2xl:text-[24px]">
             <a
@@ -140,9 +142,12 @@ const Header: React.FC<IProps> = ({ t }) => {
             </div>
 
             <div className={isNavOpen ? "show-menu" : "hidden"}>
-              <div className="absolute top-0 left-0 px-8 py-8 cursor-pointer">
+              <a
+                className="absolute top-0 left-0 px-8 py-8 cursor-pointer"
+                href="https://getmoles.com/"
+              >
                 <img className="cursor-pointer" src={logo} alt="logo" />
-              </div>
+              </a>
               <div
                 className="absolute top-0 right-0 px-8 py-8 cursor-pointer"
                 onClick={() => setIsNavOpen(false)}

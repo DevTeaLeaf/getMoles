@@ -16,7 +16,7 @@ const TOKEN_SALE = "0x4895A1974b9dfFC2F8494C2B3cA2416ffF971841";
 
 const metadata = {
   name: "GetMoles",
-  description: "", //getmoles description
+  description: "Crush the moles, and save the garden",
   url: "https://getmoles.com",
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };

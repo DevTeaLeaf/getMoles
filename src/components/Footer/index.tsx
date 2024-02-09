@@ -14,11 +14,14 @@ const Footer: React.FC<IProps> = ({ t }) => {
   return (
     <div className="w-full flex items-center justify-between h-[60px] md:h-[80px] px-2 md:px-5">
       <div className="flex flex-col items-start">
-        <img
-          className="sm:w-[110px] w-[90px] md:w-full h-9 max-w-[200px] cursor-pointer xl:mt-[-16px]"
-          src={logo}
-          alt="logo"
-        />
+        <a href="https://getmoles.com/">
+          <img
+            className="sm:w-[110px] w-[90px] md:w-full h-9 max-w-[200px] cursor-pointer xl:mt-[-16px]"
+            src={logo}
+            alt="logo"
+          />
+        </a>
+
         <p className="montserrat sm:hidden block text-[12px] text-[#fff]">
           {t("all_rights")}
         </p>
