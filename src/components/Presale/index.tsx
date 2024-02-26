@@ -16,7 +16,7 @@ import Timer from "./Timer";
 
 import { hammer, mole9 } from "#assets";
 
-import { TOKEN_SALE, TokenABI, TokenSaleABI, USDT } from "#web3";
+import { TALPA, TOKEN_SALE, TokenABI, TokenSaleABI, USDT } from "#web3";
 
 import { formatNumber } from "#utils";
 
@@ -127,6 +127,49 @@ const Presale: React.FC<IProps> = ({ t }) => {
   };
   const initData = async () => {
     try {
+      const top = await readContract(publicClient, {
+        address: TOKEN_SALE,
+        abi: TokenSaleABI,
+        functionName: "getTop",
+        args: [50],
+      });
+      const bought = await readContract(publicClient, {
+        address: TOKEN_SALE,
+        abi: TokenSaleABI,
+        functionName: "boughtTalpa",
+        args: [address],
+      });
+      const balance = await readContract(publicClient, {
+        address: TALPA,
+        abi: TokenABI,
+        functionName: "balanceOf",
+        args: [address],
+      });
+      const gotRefBonus = await readContract(publicClient, {
+        address: TOKEN_SALE,
+        abi: TokenSaleABI,
+        functionName: "gotRefBonus",
+        args: [address],
+      });
+      const topBuyers = await readContract(publicClient, {
+        address: TOKEN_SALE,
+        abi: TokenSaleABI,
+        functionName: "topBuyers",
+        args: [50],
+      });
+      const topRef = await readContract(publicClient, {
+        address: TOKEN_SALE,
+        abi: TokenSaleABI,
+        functionName: "topRef",
+        args: [50],
+      });
+      console.log("top", top);
+      console.log("bought", bought);
+      console.log("balance", balance);
+      console.log("gotRefBonus", gotRefBonus);
+      console.log("topBuyers", topBuyers);
+      console.log("topRef", topRef);
+      /////
       let USDTRaised = await readContract(publicClient, {
         address: TOKEN_SALE,
         abi: TokenSaleABI,

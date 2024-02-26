@@ -10,9 +10,9 @@ import TokenABI from "./abi/Token.json";
 import TokenSaleABI from "./abi/TokenSale.json";
 
 const walletConnectProjectId = "ca2e9c541f075c8f9f6e898747ea4b8c";
-const TALPA = "0xA9B03E4631Ed18f38AeC68b60b6E7Ad3262F4156";
+const TALPA = "0xfFc6F0038908f5035884347FE02a465260Fd032b";
 const USDT = "0xc2132D05D31c914a87C6611C10748AEb04B58e8F";
-const TOKEN_SALE = "0x4895A1974b9dfFC2F8494C2B3cA2416ffF971841";
+const TOKEN_SALE = "0xad37fF90244B8569fFefEbA734c7893dA2B0752F";
 
 const metadata = {
   name: "GetMoles",
