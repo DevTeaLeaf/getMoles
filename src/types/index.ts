@@ -26,10 +26,15 @@ type TStepsQuestion = {
   answers: TStepsAnswer[];
 };
 
+type TBuyers = {
+  address: string;
+  amount: number;
+};
+
 type TFAQ = TNormalQuestion | TListQuestion | TStepsQuestion;
 
 type TTokenomicsSliceAnimation = {
   [key: string]: boolean;
 };
 
-export type { TFAQ, TTokenomicsSliceAnimation };
+export type { TFAQ, TTokenomicsSliceAnimation, TBuyers };

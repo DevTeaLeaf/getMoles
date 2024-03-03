@@ -17,6 +17,7 @@ import {
   Ticker,
   ReferralEarnings,
   Presale,
+  Statistics,
 } from "#components";
 
 import { h1_logo, moles, rocket, group, target, mole21, mole6 } from "#assets";
@@ -218,6 +219,7 @@ const Home: React.FC<IProps> = ({ t }) => {
             <ReferralEarnings />
           </div>
         </div>
+        <Statistics />
       </div>
 
       <Roadmap />

@@ -33,9 +33,9 @@ import {
 
 import type { TFAQ } from "#types";
 
-const STAGES = ["07.04.2024", "07.05.2024", "07.06.2024"];
+const STAGES = ["26.04.2024", "26.06.2024", "26.08.2024"];
 
-const TOTAL_SCOPE = "5000000";
+const TOTAL_SCOPE = "2500000";
 
 const ROADMAP = [
   {
@@ -124,15 +124,6 @@ const ROADMAP = [
             state: "do",
             description: "roadmap_15",
           },
-        ],
-      },
-    ],
-  },
-  {
-    year: 2025,
-    quartals: [
-      {
-        targets: [
           {
             state: "do",
             description: "roadmap_16",
@@ -141,12 +132,13 @@ const ROADMAP = [
             state: "do",
             description: "roadmap_17",
           },
-          {
-            state: "do",
-            description: "roadmap_18",
-          },
         ],
       },
+    ],
+  },
+  {
+    year: 2025,
+    quartals: [
       {
         targets: [
           {
@@ -159,7 +151,7 @@ const ROADMAP = [
           },
           {
             state: "do",
-            description: "roadmap_21",
+            description: "roadmap_18",
           },
         ],
       },
@@ -167,11 +159,23 @@ const ROADMAP = [
         targets: [
           {
             state: "do",
-            description: "roadmap_22",
+            description: "roadmap_21",
           },
           {
             state: "do",
+            description: "roadmap_22",
+          },
+        ],
+      },
+      {
+        targets: [
+          {
+            state: "do",
             description: "roadmap_23",
+          },
+          {
+            state: "do",
+            description: "roadmap_24",
           },
         ],
       },

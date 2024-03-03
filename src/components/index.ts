@@ -7,6 +7,7 @@ import Team from "./Team";
 import FAQ from "./FAQ";
 import Ticker from "./Ticker";
 import ReferralEarnings from "./ReferralEarnings";
+import Statistics from "./Statistics";
 import Presale from "./Presale";
 
 export {
@@ -19,5 +20,6 @@ export {
   FAQ,
   Ticker,
   ReferralEarnings,
+  Statistics,
   Presale,
 };
