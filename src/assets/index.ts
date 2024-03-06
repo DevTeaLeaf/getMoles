@@ -58,6 +58,9 @@ import avatar3 from "./img/avatar3.svg";
 import avatar4 from "./img/avatar4.svg";
 import avatar5 from "./img/avatar5.svg";
 import avatar6 from "./img/avatar6.svg";
+import avatar7 from "./img/avatar7.svg";
+import avatar8 from "./img/avatar8.svg";
+import avatar9 from "./img/avatar9.svg";
 
 export {
   logo,
@@ -111,4 +114,7 @@ export {
   avatar4,
   avatar5,
   avatar6,
+  avatar7,
+  avatar8,
+  avatar9,
 };

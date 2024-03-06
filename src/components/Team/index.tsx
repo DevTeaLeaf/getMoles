@@ -34,9 +34,13 @@ const Team: React.FC<IProps> = ({ t }) => {
               alt="avatar"
               className="min-[1440px]:max-w-[294px] min-[1440px]:max-h-[294px] lg:max-w-[250px] lg:max-h-[250px] max-w-[100px] max-h-[100px] md:max-w-[200px] md:max-h-[200px] w-full h-full"
             />
-            <h3 className="text-[#FFB800] min-[1440px]:text-[36px] lg:text-[24px] md:text-[20px] text-[16px] font-bold text-center min-[1440px]:leading-10 md:leading-7 leading-4 tracking-[2px]">
+            <a
+              target="_blank"
+              href={member.link}
+              className="text-[#FFB800] min-[1440px]:text-[36px] lg:text-[24px] md:text-[20px] text-[16px] font-bold text-center min-[1440px]:leading-10 md:leading-7 leading-4 tracking-[2px] underline"
+            >
               {member.userName}
-            </h3>
+            </a>
             <p className="min-[1440px]:text-[24px] lg:text-[18px] md:text-[14px] text-[12px] min-[1440px]:leading-9 leading-5 min-[1440px]:max-w-[350px] md:max-w-[250px] max-w-[120px] text-center">
               {t(member.description)}
             </p>
