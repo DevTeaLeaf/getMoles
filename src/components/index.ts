@@ -9,6 +9,7 @@ import Ticker from "./Ticker";
 import ReferralEarnings from "./ReferralEarnings";
 import Statistics from "./Statistics";
 import Presale from "./Presale";
+import Profile from "./Profile";
 
 export {
   Header,
@@ -22,4 +23,5 @@ export {
   ReferralEarnings,
   Statistics,
   Presale,
+  Profile,
 };

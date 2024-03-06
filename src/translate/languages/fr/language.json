@@ -7,6 +7,7 @@
   "team": "Équipe",
   "faq": "FAQ",
   "connect_wallet": "Connecter le portefeuille",
+  "view_profile": "Voir le profil",
   "buy_token": "Acheter un jeton",
   "main_description": "Commencez dès maintenant à vous préparer pour la bataille épique contre les taupes dévorantes en achetant des jetons $TALPA !",
   "home_h1": "Vous rêviez de devenir professionnel ?",
@@ -106,5 +107,13 @@
   "team_description_5": "Département de conception graphique",
   "team_description_6": "Développement de contrats intelligents",
   "approve_usdt": "Approuver l'USDT",
-  "stage": "scène"
+  "stage": "scène",
+  "statistics_desc": "Parrainez autant d'amis que possible et recevez des bonus supplémentaires en étant dans le top 5",
+  "top_investors": "Principaux investisseurs",
+  "top_referrals": "Meilleures références",
+  "wallet": "Portefeuille",
+  "invested": "Investi",
+  "amount": "Montant",
+  "bought": "Acheté",
+  "balance": "Équilibre"
 }

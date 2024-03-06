@@ -7,6 +7,7 @@
   "team": "团队",
   "faq": "常问问题",
   "connect_wallet": "连接钱包",
+  "view_profile": "查看资料",
   "buy_token": "购买代币",
   "main_description": "现在就购买 $TALPA 代币，开始准备与吞噬鼹鼠的史诗般的战斗吧！",
   "home_h1": "您梦想成为一名专业人士吗？",
@@ -106,5 +107,13 @@
   "team_description_5": "平面设计系",
   "team_description_6": "智能合约开发",
   "approve_usdt": "批准USDT",
-  "stage": "阶段"
+  "stage": "阶段",
+  "statistics_desc": "推荐尽可能多的朋友，进入前 5 名即可获得额外奖金",
+  "top_investors": "顶级投资者",
+  "top_referrals": "热门推荐",
+  "wallet": "钱包",
+  "invested": "投资",
+  "amount": "数量",
+  "bought": "买",
+  "balance": "平衡"
 }

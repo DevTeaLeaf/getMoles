@@ -4,6 +4,7 @@ import h1_logo from "./img/h1_logo.svg";
 import moles from "./img/moles.svg";
 
 import wallet_img from "./img/wallet_button.svg";
+import profile from "./img/profile.svg";
 import buy_img from "./img/buy_button.svg";
 import dropdown_arrow from "./img/dropdown_arrow.svg";
 
@@ -63,6 +64,7 @@ export {
   h1_logo,
   moles,
   wallet_img,
+  profile,
   buy_img,
   dropdown_arrow,
   x,

@@ -12,6 +12,9 @@ import { motion } from "framer-motion";
 
 import { TFunction } from "i18next";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Timer from "./Timer";
 
 import { hammer, mole9 } from "#assets";
@@ -47,6 +50,8 @@ const Presale: React.FC<IProps> = ({ t }) => {
   const [minAmountToBuy, setMinAmountToBuy] = useState(0);
   const [allowance, setAllowance] = useState<any>(0);
   const [txHash, setTxHash] = useState("");
+
+  const notify = () => toast("Transaction complete!");
 
   const checkAllowance = async () => {
     const allowance = await readContract(publicClient, {
@@ -108,6 +113,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
       setTxHash(transaction?.transactionHash);
       if (transaction?.status === "success") {
         setInputsValues({ talpa: "", usdt: "" });
+        notify();
       }
     } catch (error) {
       console.log("INVEST ERROR:", error);
@@ -173,7 +179,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
 
   useEffect(() => {
     initData();
-  }, [txHash]);
+  }, [txHash, address]);
   return (
     <div
       id="presale"
@@ -340,6 +346,7 @@ const Presale: React.FC<IProps> = ({ t }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

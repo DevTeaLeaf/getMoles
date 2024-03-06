@@ -8,14 +8,15 @@ import { TFunction } from "i18next";
 
 import LanguagesModal from "../LanguagesModal";
 
-import { buy_img, dropdown_arrow, logo, wallet_img } from "#assets";
+import { buy_img, dropdown_arrow, logo, profile, wallet_img } from "#assets";
 import i18n from "#translate/i18n";
 
 interface IProps {
+  setProfile: React.Dispatch<React.SetStateAction<boolean>>;
   t: TFunction;
 }
 
-const Header: React.FC<IProps> = ({ t }) => {
+const Header: React.FC<IProps> = ({ setProfile, t }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [modalActive, setModalActive] = useState(false);
 
@@ -96,19 +97,27 @@ const Header: React.FC<IProps> = ({ t }) => {
                   <p>{t("buy_token")}</p>
                 </div>
               </a>
-              <button
-                className="rounded-3xl bg-transparent border min-[430px]:block hidden transition-transform duration-300 transform hover:scale-105"
-                onClick={() => open()}
-              >
-                <div className="py-[6px] pl-2 pr-3 md:py-3 md:pl-4 md:pr-6 flex items-center gap-1 md:gap-2">
-                  <img src={wallet_img} alt="Connect Wallet" />
-                  <p>
-                    {address
-                      ? address.slice(0, 4) + "..." + address.slice(-4)
-                      : t("connect_wallet")}
-                  </p>
-                </div>
-              </button>
+              {address ? (
+                <button
+                  onClick={() => setProfile((prev) => !prev)}
+                  className="rounded-3xl bg-transparent border min-[430px]:block hidden transition-transform duration-300 transform hover:scale-105"
+                >
+                  <div className="py-[6px] pl-2 pr-3 md:py-3 md:pl-4 md:pr-6 flex items-center gap-1 md:gap-2">
+                    <img src={profile} alt="Profile" />
+                    <p>{t("view_profile")}</p>
+                  </div>
+                </button>
+              ) : (
+                <button
+                  className="rounded-3xl bg-transparent border min-[430px]:block hidden transition-transform duration-300 transform hover:scale-105"
+                  onClick={() => open()}
+                >
+                  <div className="py-[6px] pl-2 pr-3 md:py-3 md:pl-4 md:pr-6 flex items-center gap-1 md:gap-2">
+                    <img src={wallet_img} alt="Connect Wallet" />
+                    <p>{t("connect_wallet")}</p>
+                  </div>
+                </button>
+              )}
             </div>
             <div
               onClick={() => setModalActive((prev) => !prev)}
@@ -221,19 +230,27 @@ const Header: React.FC<IProps> = ({ t }) => {
                           <p>{t("buy_token")}</p>
                         </div>
                       </button>
-                      <button
-                        className="rounded-3xl bg-transparent border"
-                        onClick={() => open()}
-                      >
-                        <div className="py-3 pl-4 pr-6 flex items-center gap-2">
-                          <img src={wallet_img} alt="Connect Wallet" />
-                          <p>
-                            {address
-                              ? address.slice(0, 4) + "..." + address.slice(-4)
-                              : t("connect_wallet")}
-                          </p>
-                        </div>
-                      </button>
+                      {address ? (
+                        <button
+                          onClick={() => setProfile((prev) => !prev)}
+                          className="rounded-3xl bg-transparent border"
+                        >
+                          <div className="py-3 pl-4 pr-6 flex items-center gap-2">
+                            <img src={profile} alt="Profile" />
+                            <p>{t("view_profile")}</p>
+                          </div>
+                        </button>
+                      ) : (
+                        <button
+                          className="rounded-3xl bg-transparent border"
+                          onClick={() => open()}
+                        >
+                          <div className="py-3 pl-4 pr-6 flex items-center gap-2">
+                            <img src={wallet_img} alt="Connect Wallet" />
+                            <p>{t("connect_wallet")}</p>
+                          </div>
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

@@ -7,6 +7,7 @@
   "team": "Team",
   "faq": "FAQ",
   "connect_wallet": "Connect Wallet",
+  "view_profile": "View Profile",
   "buy_token": "Buy Token",
   "main_description": "Start preparing for the epic battle against the Devouring Moles right now by purchasing $TALPA tokens!",
   "home_h1": "Have you dreamed of becoming a professional?",
@@ -106,5 +107,13 @@
   "team_description_5": "Graphic Design Department",
   "team_description_6": "Smart contract development",
   "approve_usdt": "Approve USDT",
-  "stage": "stage"
+  "stage": "stage",
+  "statistics_desc": "Refer as many friends as possible and receive additional bonuses by being in the top-5",
+  "top_investors": "Top Investors",
+  "top_referrals": "Top referrals",
+  "wallet": "Wallet",
+  "invested": "Invested",
+  "amount": "Amount",
+  "bought": "Bought",
+  "balance": "Balance"
 }

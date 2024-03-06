@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { withTranslation } from "react-i18next";
 
 import { useWeb3Modal } from "@web3modal/wagmi/react";
@@ -18,6 +20,7 @@ import {
   ReferralEarnings,
   Presale,
   Statistics,
+  Profile,
 } from "#components";
 
 import { h1_logo, moles, rocket, group, target, mole21, mole6 } from "#assets";
@@ -33,9 +36,11 @@ const Home: React.FC<IProps> = ({ t }) => {
 
   const { open } = useWeb3Modal();
 
+  const [isProfile, setIsProfile] = useState(false);
+
   return (
     <>
-      <Header />
+      <Header setProfile={setIsProfile} />
       <div className="flex flex-col min-h-screen">
         <div className="max-w-[1920px] mx-auto text-[#fff] mb-[100px] md:mb-[200px] montserrat flex-1">
           <div className="flex flex-col md:gap-[150px] gap-[50px] mt-[50px] md:mt-[150px]">
@@ -50,7 +55,16 @@ const Home: React.FC<IProps> = ({ t }) => {
                   {t("main_description")}
                 </p>
                 <div className="flex items-start flex-col gap-[30px]">
-                  {!address && (
+                  {address ? (
+                    <button
+                      onClick={() => setIsProfile((prev) => !prev)}
+                      className="bg-[#FFB800] rounded-3xl w-[315px] transition-transform duration-300 transform hover:scale-105"
+                    >
+                      <p className="montserrat text-[20px] font-black py-5">
+                        {t("view_profile")}
+                      </p>
+                    </button>
+                  ) : (
                     <button
                       onClick={() => open()}
                       className="bg-[#FFB800] rounded-3xl w-[315px] transition-transform duration-300 transform hover:scale-105"
@@ -233,6 +247,7 @@ const Home: React.FC<IProps> = ({ t }) => {
           </div>
         </div>
       </div>
+      <Profile isProfile={isProfile} setProfile={setIsProfile} />
       <Footer />
     </>
   );

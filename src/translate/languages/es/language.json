@@ -7,6 +7,7 @@
   "team": "Equipo",
   "faq": "FAQ",
   "connect_wallet": "Conectar billetera",
+  "view_profile": "Ver perfil",
   "buy_token": "Comprar ficha",
   "main_description": "¡Comienza a prepararte para la batalla épica contra los topos devoradores ahora mismo comprando tokens $TALPA!",
   "home_h1": "¿Has soñado con convertirte en profesional?",
@@ -106,5 +107,13 @@
   "team_description_5": "Departamento de Diseño Gráfico",
   "team_description_6": "Desarrollo de contratos inteligentes",
   "approve_usdt": "Aprobar USDT",
-  "stage": "escenario"
+  "stage": "escenario",
+  "statistics_desc": "Recomiende a tantos amigos como sea posible y reciba bonificaciones adicionales por estar entre los 5 primeros",
+  "top_investors": "Principales inversores",
+  "top_referrals": "Principales referencias",
+  "wallet": "Billetera",
+  "invested": "Invertido",
+  "amount": "Cantidad",
+  "bought": "Compró",
+  "balance": "Balance"
 }
