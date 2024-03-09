@@ -37,7 +37,7 @@ const Team: React.FC<IProps> = ({ t }) => {
             <a
               target="_blank"
               href={member.link}
-              className="text-[#FFB800] min-[1440px]:text-[36px] lg:text-[24px] md:text-[20px] text-[16px] font-bold text-center min-[1440px]:leading-10 md:leading-7 leading-4 tracking-[2px] underline"
+              className="text-[#FFB800] min-[1440px]:text-[36px] lg:text-[24px] md:text-[20px] text-[16px] font-bold text-center min-[1440px]:leading-10 md:leading-7 leading-4 tracking-[2px]"
             >
               {member.userName}
             </a>

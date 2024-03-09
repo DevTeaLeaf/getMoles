@@ -28,7 +28,7 @@ type TStepsQuestion = {
 
 type TBuyers = {
   address: string;
-  amount: number;
+  amount: number | bigint | string;
 };
 
 type TFAQ = TNormalQuestion | TListQuestion | TStepsQuestion;

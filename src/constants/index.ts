@@ -253,7 +253,7 @@ const TEAM = [
   {
     userName: "@Yunus",
     description: "ambassador",
-    avatar: avatar4,
+    avatar: avatar6,
     link: "https://www.instagram.com/yunusovroman/",
   },
   {
@@ -265,14 +265,14 @@ const TEAM = [
   {
     userName: "@Serg",
     description: "smm_manager",
-    avatar: avatar6,
+    avatar: avatar4,
     link: "https://t.me/Getmoles",
   },
   {
     userName: "@Leaf",
     description: "team_description_4",
     avatar: avatar7,
-    link: "https://t.me/Getmoles",
+    link: "https://github.com/DevTeaLeaf",
   },
   {
     userName: "@SI",
@@ -284,7 +284,7 @@ const TEAM = [
     userName: "@Misha",
     description: "team_description_6",
     avatar: avatar9,
-    link: "https://t.me/Getmoles",
+    link: "https://github.com/JodsMigel",
   },
 ];
 

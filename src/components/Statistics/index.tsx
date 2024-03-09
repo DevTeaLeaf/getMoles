@@ -27,18 +27,79 @@ const Statistics: React.FC<IProps> = ({ t }) => {
         address: TOKEN_SALE,
         abi: TokenSaleABI,
         functionName: "getTop",
-        args: [5],
+        args: [50],
       });
 
-      const buyers: TBuyers = top[0].map((user: string, index: number) => ({
-        address: user,
-        amount: formatUnits(top[2][index], 18),
-      }));
+      const buyersMap: any = {};
+      const referralsMap: any = {};
 
-      const referrals = top[1].map((user: string, index: number) => ({
-        address: user,
-        amount: formatUnits(top[3][index], 18),
-      }));
+      let buyers = top[0].reduce((acc: any[], user: string, index: number) => {
+        const address = user;
+        const amount = top[2][index];
+
+        if (buyersMap.hasOwnProperty(address)) {
+          buyersMap[address] += amount;
+        } else {
+          buyersMap[address] = amount;
+        }
+
+        const existingBuyerIndex = acc.findIndex(
+          (item) => item.address === address
+        );
+        if (existingBuyerIndex !== -1) {
+          acc[existingBuyerIndex].amount += amount;
+        } else {
+          acc.push({
+            address,
+            amount: buyersMap[address],
+          });
+        }
+
+        return acc;
+      }, []);
+
+      let referrals = top[1].reduce(
+        (acc: any[], user: string, index: number) => {
+          const address = user;
+          const amount = top[3][index];
+
+          if (referralsMap.hasOwnProperty(address)) {
+            referralsMap[address] += amount;
+          } else {
+            referralsMap[address] = amount;
+          }
+
+          const existingReferralIndex = acc.findIndex(
+            (item) => item.address === address
+          );
+          if (existingReferralIndex !== -1) {
+            acc[existingReferralIndex].amount += amount;
+          } else {
+            acc.push({
+              address,
+              amount: referralsMap[address],
+            });
+          }
+
+          return acc;
+        },
+        []
+      );
+
+      buyers = buyers
+        .map((buyer: TBuyers) => ({
+          ...buyer,
+          amount: String(formatUnits(buyer.amount as bigint, 18)),
+        }))
+        .slice(0, 5);
+
+      referrals = referrals
+        .map((ref: TBuyers) => ({
+          ...ref,
+          amount: String(formatUnits(ref.amount as bigint, 18)),
+        }))
+        .slice(0, 5);
+
       setTopReferrals(referrals);
       setTopBuyers(buyers);
     } catch (error) {
@@ -74,10 +135,10 @@ const Statistics: React.FC<IProps> = ({ t }) => {
               <tr key={address + index}>
                 <td className="border px-4 py-2 lg:text-[20px] text-[14px]">
                   <p className="md:block hidden">{address}</p>
-                  <p className="block md:hidden">{address.slice(0, 10)}.....</p>
+                  <p className="block md:hidden">{address.slice(0, 20)}.....</p>
                 </td>
                 <td className="border px-4 py-2 text-end text-[14px] md:text-[20px]">
-                  {amount} TALPA
+                  {amount as string} TALPA
                 </td>
               </tr>
             ))}
@@ -99,10 +160,10 @@ const Statistics: React.FC<IProps> = ({ t }) => {
               <tr key={address + index}>
                 <td className="border px-4 py-2 lg:text-[20px] text-[14px]">
                   <p className="md:block hidden">{address}</p>
-                  <p className="block md:hidden">{address.slice(0, 10)}.....</p>
+                  <p className="block md:hidden">{address.slice(0, 20)}.....</p>
                 </td>
                 <td className="border px-4 py-2 text-end text-[14px] md:text-[20px]">
-                  {amount} TALPA
+                  {amount as string} TALPA
                 </td>
               </tr>
             ))}
