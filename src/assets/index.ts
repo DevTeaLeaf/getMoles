@@ -55,7 +55,6 @@ import progress from "./img/inProgress.svg";
 import avatar1 from "./img/avatar1.svg";
 import avatar2 from "./img/avatar2.svg";
 import avatar3 from "./img/avatar3.svg";
-import avatar4 from "./img/avatar4.svg";
 import avatar5 from "./img/avatar5.svg";
 import avatar6 from "./img/avatar6.svg";
 import avatar7 from "./img/avatar7.svg";
@@ -111,7 +110,6 @@ export {
   avatar1,
   avatar2,
   avatar3,
-  avatar4,
   avatar5,
   avatar6,
   avatar7,

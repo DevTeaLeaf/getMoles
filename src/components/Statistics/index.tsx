@@ -87,6 +87,7 @@ const Statistics: React.FC<IProps> = ({ t }) => {
       );
 
       buyers = buyers
+        .sort((a: TBuyers, b: TBuyers) => Number(b.amount) - Number(a.amount))
         .map((buyer: TBuyers) => ({
           ...buyer,
           amount: String(formatUnits(buyer.amount as bigint, 18)),
@@ -94,6 +95,7 @@ const Statistics: React.FC<IProps> = ({ t }) => {
         .slice(0, 5);
 
       referrals = referrals
+        .sort((a: TBuyers, b: TBuyers) => Number(b.amount) - Number(a.amount))
         .map((ref: TBuyers) => ({
           ...ref,
           amount: String(formatUnits(ref.amount as bigint, 18)),

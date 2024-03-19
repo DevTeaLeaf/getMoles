@@ -2,7 +2,6 @@ import {
   avatar1,
   avatar2,
   avatar3,
-  avatar4,
   avatar5,
   avatar6,
   avatar7,
@@ -260,12 +259,6 @@ const TEAM = [
     userName: "@Tyuning",
     description: "ambassador",
     avatar: avatar5,
-    link: "https://t.me/Getmoles",
-  },
-  {
-    userName: "@Serg",
-    description: "smm_manager",
-    avatar: avatar4,
     link: "https://t.me/Getmoles",
   },
   {
