@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 
 import { withTranslation } from "react-i18next";
 
@@ -17,7 +17,7 @@ interface IProps {
   t: TFunction;
 }
 
-const Tokenomics: React.FC<IProps> = ({ t }) => {
+const Tokenomics: React.FC<IProps> = memo(({ t }) => {
   const [animations, setAnimations] = useState<TTokenomicsSliceAnimation>({
     presale: false,
     p2e_staking: false,
@@ -236,6 +236,6 @@ const Tokenomics: React.FC<IProps> = ({ t }) => {
       </div>
     </div>
   );
-};
+});
 
 export default withTranslation()(Tokenomics);
